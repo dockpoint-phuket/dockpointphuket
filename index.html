@@ -1,0 +1,2542 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dock Point — Недвижимость на Пхукете</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&amp;family=Montserrat:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --navy: #0d1b3e;
+    --navy-light: #1a2d5a;
+    --gold: #c9a84c;
+    --gold-light: #e4c97a;
+    --gold-pale: #f5e9c8;
+    --white: #ffffff;
+    --off-white: #fafaf8;
+    --text-dark: #0d1b3e;
+    --text-mid: #3a4a6b;
+    --border: rgba(201,168,76,0.25);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--white);
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    background: rgba(255,255,255,0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 48px;
+    height: 70px;
+    box-shadow: 0 2px 20px rgba(13,27,62,0.07);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+  }
+
+  .nav-logo-circle {
+    width: 44px;
+    height: 44px;
+    background: var(--navy);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--gold);
+    overflow: hidden;
+  }
+
+  .nav-logo-circle svg {
+    width: 24px;
+    height: 24px;
+    fill: var(--gold);
+  }
+
+  .nav-logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+  }
+
+  .nav-logo-text span:first-child {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--navy);
+    letter-spacing: 0.04em;
+  }
+
+  .nav-logo-text span:last-child {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--navy);
+    position: relative;
+    transition: color 0.25s;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px; left: 0; right: 100%;
+    height: 1.5px;
+    background: var(--gold);
+    transition: right 0.3s ease;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+  .nav-links a:hover::after { right: 0; }
+
+  .nav-contact-btn {
+    background: var(--navy);
+    color: var(--gold) !important;
+    padding: 10px 22px;
+    border-radius: 2px;
+    font-size: 10px !important;
+    letter-spacing: 0.16em !important;
+    font-weight: 700 !important;
+    transition: background 0.25s, color 0.25s !important;
+    border: 1px solid var(--navy);
+  }
+
+  .nav-contact-btn:hover {
+    background: var(--gold) !important;
+    color: var(--navy) !important;
+    border-color: var(--gold) !important;
+  }
+
+  .nav-contact-btn::after { display: none !important; }
+
+  .nav-logo span {
+    font-weight: 500;
+    color: var(--navy);
+  }
+
+  .nav-logo-text {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    line-height: 1;
+    text-decoration: none;
+  }
+
+  .nav-logo-word {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 29px;
+    font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 0.02em;
+  }
+
+  .nav-logo-sub {
+    margin-top: 5px;
+    font-size: 9px;
+    line-height: 1.05;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--navy);
+    opacity: 0.72;
+    white-space: nowrap;
+  }
+
+  /* HERO */
+  .hero {
+    height: 100vh;
+    min-height: 680px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: var(--off-white);
+    position: relative;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(ellipse 70% 60% at 50% 0%, rgba(201,168,76,0.08) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 30% at 80% 80%, rgba(13,27,62,0.04) 0%, transparent 60%);
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(13,27,62,0.06) 0%, rgba(13,27,62,0.02) 48%, rgba(13,27,62,0.10) 100%);
+    pointer-events: none;
+  }
+
+  .hero-anchor-bg {
+    position: absolute;
+    opacity: 0.04;
+    width: 520px;
+    height: 520px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -52%);
+    pointer-events: none;
+  }
+
+  .hero-eyebrow {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 28px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .hero-eyebrow::before, .hero-eyebrow::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+    opacity: 0.6;
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(52px, 8vw, 88px);
+    font-weight: 300;
+    color: var(--navy);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    margin-bottom: 12px;
+    position: relative;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(20px, 3vw, 30px);
+    font-weight: 300;
+    color: var(--text-mid);
+    margin-bottom: 48px;
+    letter-spacing: 0.05em;
+    position: relative;
+    font-style: italic;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+  }
+
+  .btn-primary {
+    background: var(--navy);
+    color: var(--gold);
+    padding: 16px 40px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1.5px solid var(--navy);
+    transition: all 0.28s ease;
+    display: inline-block;
+    border-radius: 2px;
+  }
+
+  .btn-primary:hover {
+    background: transparent;
+    color: var(--navy);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--navy);
+    padding: 16px 40px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1.5px solid rgba(13,27,62,0.25);
+    transition: all 0.28s ease;
+    display: inline-block;
+    border-radius: 2px;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+
+  /* SECTION COMMON */
+  section {
+    padding: 100px 60px;
+  }
+
+  .section-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 5vw, 58px);
+    font-weight: 400;
+    color: var(--navy);
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+
+  .divider {
+    width: 60px;
+    height: 1.5px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+    margin: 24px 0 48px;
+  }
+
+  /* PROJECTS */
+  #projects {
+    background: var(--white);
+  }
+
+  .projects-header {
+    max-width: 1200px;
+    margin: 0 auto 60px;
+  }
+
+  .projects-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    gap: 40px;
+  }
+
+  .project-block {
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .block-header {
+    background: var(--navy);
+    padding: 20px 32px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .block-header-icon {
+    width: 32px;
+    height: 32px;
+    fill: var(--gold);
+    flex-shrink: 0;
+  }
+
+
+  .block-header-preview {
+    width: 132px;
+    height: 78px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-left: auto;
+    border: 1px solid rgba(201,168,76,0.45);
+    box-shadow: 0 8px 22px rgba(0,0,0,0.18);
+    opacity: 0.92;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 700px) {
+    .block-header-preview {
+      display: none;
+    }
+  }
+
+  .block-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--white);
+    letter-spacing: 0.04em;
+  }
+
+  .block-subtitle {
+    font-size: 9.5px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    margin-top: 2px;
+  }
+
+  .block-items {
+    padding: 28px 32px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .project-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    text-decoration: none;
+    color: var(--navy);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: all 0.25s ease;
+    cursor: pointer;
+  }
+
+  .project-btn:hover {
+    background: var(--navy);
+    border-color: var(--navy);
+    color: var(--gold);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(13,27,62,0.14);
+  }
+
+
+  /* RU-only PDF buttons: English presentations are not ready yet */
+  html[lang="en"] #projects a[onclick^="openPDF"],
+  html[data-lang="en"] #projects a[onclick^="openPDF"],
+  body.lang-en #projects a[onclick^="openPDF"],
+  #projects a[data-ru-only-pdf="true"][hidden] {
+    display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+
+
+  /* Hide project presentation buttons in English version until EN PDFs are ready */
+  html[lang="en"] #projects .project-btn {
+    display: none !important;
+  }
+
+  .project-btn svg {
+    width: 14px;
+    height: 14px;
+    fill: currentColor;
+    opacity: 0.7;
+    flex-shrink: 0;
+  }
+
+  /* PDF MODAL */
+  .pdf-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(10,20,50,0.88);
+    backdrop-filter: blur(6px);
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
+  }
+
+  .pdf-modal.active {
+    display: flex;
+  }
+
+  .pdf-modal-inner {
+    background: var(--white);
+    border-radius: 6px;
+    width: 100%;
+    max-width: 960px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.35);
+  }
+
+  .pdf-modal-header {
+    background: var(--navy);
+    padding: 18px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+  }
+
+  .pdf-modal-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    color: var(--gold);
+    font-weight: 500;
+    letter-spacing: 0.06em;
+  }
+
+  .pdf-modal-note {
+    font-size: 10px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.1em;
+    margin-top: 2px;
+    text-transform: uppercase;
+  }
+
+  .pdf-close {
+    background: none;
+    border: 1.5px solid rgba(255,255,255,0.25);
+    color: var(--white);
+    font-size: 18px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    line-height: 1;
+    padding: 0;
+  }
+
+  .pdf-close:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+
+  .pdf-placeholder {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 40px;
+    text-align: center;
+    background: var(--off-white);
+  }
+
+  .pdf-placeholder-icon {
+    width: 64px;
+    height: 64px;
+    fill: var(--gold);
+    opacity: 0.5;
+    margin-bottom: 20px;
+  }
+
+  .pdf-placeholder h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
+
+  .pdf-placeholder p {
+    font-size: 13px;
+    color: var(--text-mid);
+    line-height: 1.7;
+    max-width: 400px;
+  }
+
+  .pdf-frame {
+    width: 100%;
+    height: min(76vh, 780px);
+    border: 0;
+    background: var(--off-white);
+    display: none;
+  }
+
+  .pdf-open-link {
+    color: var(--gold);
+    text-decoration: none;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(201,168,76,0.45);
+    padding-bottom: 2px;
+  }
+
+  .pdf-open-link:hover {
+    color: var(--white);
+    border-bottom-color: var(--white);
+  }
+
+  /* PHUKET SECTION */
+  #phuket {
+    background: var(--navy);
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #phuket::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,168,76,0.08), transparent 70%);
+    pointer-events: none;
+  }
+
+  .phuket-inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  #phuket .section-label { color: var(--gold); }
+  #phuket .section-title { color: var(--white); }
+
+  #phuket .divider {
+    background: linear-gradient(90deg, var(--gold), transparent);
+  }
+
+  .phuket-lead {
+    line-height: 1.85;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 56px;
+    max-width: 860px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-style: italic;
+  }
+
+  .phuket-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .phuket-card {
+    background: var(--navy-light);
+    border: 1px solid rgba(201,168,76,0.28);
+    border-radius: 8px;
+    overflow: hidden;
+    display: block;
+    min-height: 0;
+    cursor: pointer;
+    transition: background 0.25s, border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+  }
+
+  .phuket-card:hover {
+    background: #203769;
+    border-color: rgba(201,168,76,0.48);
+    transform: translateY(-1px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.10);
+  }
+
+  .phuket-card.phuket-open {
+    display: grid;
+    grid-template-columns: minmax(0, 1.06fr) minmax(280px, 0.94fr);
+    min-height: 230px;
+    cursor: default;
+  }
+
+  .phuket-card-content {
+    padding: 22px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .phuket-card.phuket-open .phuket-card-content {
+    padding: 34px 34px 32px;
+  }
+
+  .phuket-card-heading {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 0;
+    position: relative;
+    padding-right: 48px;
+  }
+
+  .phuket-card-heading::after {
+    content: '+';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 28px;
+    height: 28px;
+    border: 1px solid rgba(201,168,76,0.58);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1;
+  }
+
+  .phuket-card.phuket-open .phuket-card-heading {
+    margin-bottom: 14px;
+  }
+
+  .phuket-card.phuket-open .phuket-card-heading::after {
+    content: '−';
+  }
+
+  .phuket-card-icon {
+    width: 38px;
+    height: 38px;
+    fill: var(--gold);
+    color: var(--gold);
+    opacity: 0.95;
+    flex-shrink: 0;
+    filter: drop-shadow(0 4px 12px rgba(201,168,76,0.16));
+  }
+
+  .phuket-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--white);
+    line-height: 1.18;
+  }
+
+  .phuket-card p {
+    display: none;
+    font-size: 13px;
+    line-height: 1.85;
+    color: rgba(255,255,255,0.64);
+    font-weight: 400;
+  }
+
+  .phuket-card.phuket-open p {
+    display: block;
+  }
+
+  .phuket-card-photo {
+    display: none;
+    position: relative;
+    min-height: 230px;
+    overflow: hidden;
+  }
+
+  .phuket-card.phuket-open .phuket-card-photo {
+    display: block;
+  }
+
+  .phuket-card-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: saturate(0.96) contrast(0.96) brightness(1.02);
+    transition: transform 0.45s ease;
+  }
+
+  .phuket-card:hover .phuket-card-photo img {
+    transform: scale(1.035);
+  }
+
+  .phuket-card-photo::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(13,27,62,0.16), rgba(13,27,62,0.02));
+    pointer-events: none;
+  }
+
+  /* WHO WE ARE */
+  #whoweare {
+    background: var(--off-white);
+    overflow: hidden;
+  }
+
+  .whoweare-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 0.95fr;
+    gap: 72px;
+    align-items: start;
+  }
+
+  .founder-column {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .whoweare-text p {
+    font-size: 13.5px;
+    line-height: 1.9;
+    color: var(--text-mid);
+    margin-bottom: 20px;
+  }
+
+  .whoweare-text p:last-child { margin-bottom: 0; }
+
+  .founder-visual {
+    position: relative;
+    min-height: 560px;
+    border-radius: 8px;
+    overflow: hidden;
+    background:
+      radial-gradient(circle at 68% 22%, rgba(201,168,76,0.13), transparent 34%),
+      linear-gradient(135deg, rgba(255,255,255,0.98), rgba(245,233,200,0.42));
+    border: 1px solid rgba(201,168,76,0.22);
+    box-shadow: 0 24px 70px rgba(13,27,62,0.10);
+  }
+
+  .founder-visual::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(90deg, rgba(250,250,248,0.12), rgba(250,250,248,0) 36%),
+      linear-gradient(180deg, rgba(255,255,255,0.03), rgba(13,27,62,0.20));
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .founder-photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+    filter: brightness(0.96) saturate(1.12) contrast(1.06);
+    -webkit-mask-image: radial-gradient(ellipse 95% 94% at 52% 46%, #000 66%, rgba(0,0,0,0.86) 82%, transparent 100%);
+    mask-image: radial-gradient(ellipse 95% 94% at 52% 46%, #000 66%, rgba(0,0,0,0.86) 82%, transparent 100%);
+  }
+
+  .founder-caption {
+    position: absolute;
+    left: 28px;
+    right: 28px;
+    bottom: 28px;
+    z-index: 3;
+    background: rgba(255,255,255,0.86);
+    border: 1px solid rgba(201,168,76,0.28);
+    backdrop-filter: blur(12px);
+    border-radius: 6px;
+    padding: 22px 24px;
+  }
+
+  .founder-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+
+  .founder-role {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .whoweare-tagline {
+    margin-top: 0;
+    background: var(--navy);
+    padding: 36px 40px;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .whoweare-tagline::before {
+    content: '"';
+    position: absolute;
+    top: -10px; left: 20px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 140px;
+    color: var(--gold);
+    opacity: 0.12;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .whoweare-tagline p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1.5;
+    margin-bottom: 16px;
+    position: relative;
+  }
+
+  .tagline-accent {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    position: relative;
+  }
+
+  /* CONTACT */
+  #contact {
+    background: var(--navy);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #contact::after {
+    content: '';
+    position: absolute;
+    bottom: -150px; left: 50%;
+    transform: translateX(-50%);
+    width: 700px; height: 300px;
+    background: radial-gradient(ellipse, rgba(201,168,76,0.08), transparent 70%);
+    pointer-events: none;
+  }
+
+  .contact-inner {
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  #contact .section-label {
+    justify-content: center;
+    color: var(--gold);
+  }
+
+  #contact .section-label::before { display: none; }
+
+  #contact .section-title {
+    color: var(--white);
+  }
+
+  #contact .divider {
+    margin: 24px auto 48px;
+  }
+
+  .contact-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 40px;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(201,168,76,0.15);
+    border-radius: 4px;
+    padding: 18px 28px;
+    text-decoration: none;
+    transition: background 0.22s, border-color 0.22s;
+  }
+
+  .contact-item:hover {
+    background: rgba(201,168,76,0.08);
+    border-color: rgba(201,168,76,0.35);
+  }
+
+  .contact-flag {
+    font-size: 24px;
+    flex-shrink: 0;
+  }
+
+  .contact-type {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 4px;
+  }
+
+  .contact-value {
+    font-size: 15px;
+    color: var(--white);
+    font-weight: 400;
+    letter-spacing: 0.05em;
+  }
+
+  /* FOOTER */
+  footer {
+    background: #070f23;
+    padding: 28px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid rgba(201,168,76,0.12);
+  }
+
+  .footer-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--gold);
+    letter-spacing: 0.08em;
+  }
+
+  .footer-sub {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+    margin-top: 3px;
+  }
+
+  footer p {
+    font-size: 10px;
+    color: rgba(255,255,255,0.2);
+    letter-spacing: 0.08em;
+  }
+
+
+
+  /* HERO CONTENT OVERLAY */
+  .hero-content-overlay {
+    position: relative;
+    z-index: 2;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 28px;
+    text-align: center;
+  }
+
+  .hero-brand-mark {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(40px, 5.2vw, 64px);
+    font-weight: 500;
+    color: var(--white);
+    letter-spacing: 0.02em;
+    line-height: 0.95;
+    margin-bottom: 16px;
+    text-shadow: 0 3px 18px rgba(13,27,62,0.48);
+  }
+
+  .hero-offer-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(30px, 4vw, 50px);
+    font-weight: 500;
+    color: var(--white);
+    line-height: 1.08;
+    margin-bottom: 16px;
+    text-shadow: 0 3px 20px rgba(13,27,62,0.55);
+  }
+
+  .hero-offer-subtitle {
+    max-width: 660px;
+    margin: 0 auto 28px;
+    font-size: 15px;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.94);
+    text-shadow: 0 2px 14px rgba(13,27,62,0.58);
+  }
+
+  .hero-content-overlay .hero-cta {
+    justify-content: center;
+  }
+
+
+  .hero-buttons-only {
+    position: absolute;
+    z-index: 3;
+    left: 62%;
+    bottom: 92px;
+    transform: translateX(-50%);
+    width: auto;
+    max-width: none;
+    padding: 0 24px;
+  }
+
+  .hero-buttons-only .hero-cta {
+    justify-content: center;
+    gap: 18px;
+  }
+
+  .hero-buttons-only .btn-primary,
+  .hero-buttons-only .btn-secondary {
+    box-shadow: 0 10px 28px rgba(13,27,62,0.22);
+  }
+
+  .hero-buttons-only .btn-secondary {
+    background: rgba(255,255,255,0.78);
+    backdrop-filter: blur(10px);
+    border-color: rgba(255,255,255,0.70);
+  }
+
+  /* TRUST SECTION */
+  #trust {
+    background: var(--white);
+  }
+
+  .trust-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .trust-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 18px;
+    margin-top: 42px;
+  }
+
+  .trust-item {
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 26px 26px 24px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    box-shadow: 0 10px 34px rgba(13,27,62,0.05);
+  }
+
+  .trust-check {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: rgba(201,168,76,0.13);
+    border: 1px solid rgba(201,168,76,0.35);
+    color: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .trust-item h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+
+  .trust-item p {
+    font-size: 12.5px;
+    line-height: 1.75;
+    color: var(--text-mid);
+  }
+
+  /* PROJECT CARDS */
+  .project-cards-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 22px;
+  }
+
+  .project-card-new {
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 28px 28px 26px;
+    box-shadow: 0 12px 40px rgba(13,27,62,0.06);
+    display: flex;
+    flex-direction: column;
+    min-height: 250px;
+  }
+
+  .project-card-new.featured {
+    background: linear-gradient(135deg, #fffdf6, #f8f4e8);
+    border-color: rgba(201,168,76,0.45);
+  }
+
+  .project-card-new .project-tag {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+  }
+
+  .project-card-new h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 500;
+    color: var(--navy);
+    line-height: 1.15;
+    margin-bottom: 14px;
+  }
+
+  .project-card-new p {
+    font-size: 12.5px;
+    line-height: 1.75;
+    color: var(--text-mid);
+    margin-bottom: 16px;
+  }
+
+  .project-card-new ul {
+    margin: 0 0 22px 18px;
+    color: var(--text-mid);
+    font-size: 12.5px;
+    line-height: 1.8;
+  }
+
+  .project-card-new .project-btn {
+    margin-top: auto;
+    align-self: flex-start;
+  }
+
+  .project-placeholder {
+    opacity: 0.82;
+  }
+
+  .project-category-cards {
+    padding: 26px 30px 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 18px;
+  }
+
+  .project-category-cards .project-card-new {
+    min-height: 220px;
+  }
+
+  .project-category-cards .project-card-new h3 {
+    font-size: 24px;
+  }
+
+  .project-category-cards .project-card-new p {
+    margin-bottom: 18px;
+  }
+
+  /* FAQ SECTION */
+  #faq {
+    background: var(--off-white);
+  }
+
+  .faq-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .faq-list {
+    display: grid;
+    gap: 14px;
+    margin-top: 42px;
+  }
+
+  .faq-item {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 8px 28px rgba(13,27,62,0.04);
+  }
+
+  .faq-item summary {
+    cursor: pointer;
+    padding: 22px 26px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--navy);
+    list-style: none;
+  }
+
+  .faq-item summary::-webkit-details-marker { display: none; }
+
+  .faq-item summary::after {
+    content: '+';
+    float: right;
+    color: var(--gold);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+  }
+
+  .faq-item[open] summary::after { content: '−'; }
+
+  .faq-answer {
+    padding: 0 26px 24px;
+    font-size: 13px;
+    line-height: 1.85;
+    color: var(--text-mid);
+  }
+
+  .faq-answer ul {
+    margin: 10px 0 0 18px;
+  }
+
+  .faq-answer li { margin-bottom: 6px; }
+
+  .floating-socials {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 9998;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .floating-social-btn {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 12px 34px rgba(13,27,62,0.25);
+    transition: transform 0.2s ease;
+  }
+
+  .floating-social-btn svg { width: 28px; height: 28px; fill: currentColor; }
+
+  .floating-whatsapp { background: #25D366; }
+  .floating-telegram { background: #229ED9; }
+
+  .floating-social-btn:hover { transform: translateY(-2px); }
+
+  .lang-switch {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-right: 16px;
+    padding: 4px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: rgba(255,255,255,0.82);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 16px rgba(13,27,62,0.06);
+  }
+
+  .lang-btn {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    width: 34px;
+    height: 28px;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    transition: background 0.22s, transform 0.22s;
+  }
+
+  .lang-btn:hover {
+    transform: translateY(-1px);
+    background: rgba(201,168,76,0.12);
+  }
+
+  .lang-btn.active {
+    background: var(--navy);
+    box-shadow: 0 3px 10px rgba(13,27,62,0.18);
+  }
+  @media (max-width: 900px) {
+    nav { padding: 0 20px; }
+    .nav-links { gap: 18px; }
+    section { padding: 70px 24px; }
+    .whoweare-inner { grid-template-columns: 1fr; gap: 40px; }
+    .founder-column { gap: 20px; }
+    .founder-visual { min-height: 560px; }
+    .phuket-card.phuket-open { grid-template-columns: 1fr; }
+    .phuket-card-photo { min-height: 260px; order: 2; }
+    .phuket-card-content { order: 1; }
+    footer { flex-direction: column; gap: 12px; text-align: center; padding: 24px; }
+    .block-items { padding: 20px 20px; }
+    .block-header { padding: 16px 20px; }
+    /* always show all nav items */
+  }
+
+  @media (max-width: 600px) {
+    .nav-links { gap: 12px; }
+    .lang-switch { margin-right: 8px; gap: 3px; padding: 3px; }
+    .lang-btn { width: 28px; height: 24px; font-size: 14px; }
+    .nav-logo-word { font-size: 23px; }
+    .nav-logo-sub { font-size: 7px; letter-spacing: 0.12em; }
+    .nav-links a { font-size: 9px; letter-spacing: 0.1em; }
+    .nav-contact-btn { padding: 8px 14px; }
+    .hero h1 { font-size: 42px; }
+    .hero-buttons-only { left: 50%; bottom: 48px; width: 100%; }
+    .hero-buttons-only .hero-cta { flex-direction: column; align-items: center; }
+    section { padding: 60px 20px; }
+    .phuket-card-content { padding: 20px 22px; }
+    .phuket-card.phuket-open .phuket-card-content { padding: 26px 22px 24px; }
+    .phuket-card h3 { font-size: 22px; }
+    .founder-visual { min-height: 500px; }
+    .founder-caption { left: 18px; right: 18px; bottom: 18px; padding: 18px 20px; }
+    .pdf-modal { padding: 16px; }
+
+    .hero-content-overlay { padding: 0 22px; margin: 0 auto; max-width: calc(100% - 28px); }
+    .hero-buttons-only .btn-primary { width: fit-content; max-width: 100%; }
+    .hero-brand-mark { font-size: 42px; }
+    .hero-offer-title { font-size: 30px; }
+    .hero-offer-subtitle { font-size: 13px; }
+    .project-cards-grid, .project-category-cards { grid-template-columns: 1fr; }
+    .trust-grid { grid-template-columns: 1fr; }
+    .floating-socials { right: 18px; bottom: 18px; gap: 10px; }
+    .floating-social-btn { width: 54px; height: 54px; }
+
+  }
+
+  /* MOBILE FIX — Dock Point v29 */
+  @media (max-width: 768px) {
+    nav {
+      height: 118px !important;
+      padding: 10px 12px 8px !important;
+      gap: 8px !important;
+      display: grid !important;
+      grid-template-columns: auto minmax(0, 1fr) auto !important;
+      grid-template-rows: 54px 34px !important;
+      align-items: center !important;
+      justify-content: normal !important;
+    }
+
+    .lang-switch {
+      grid-column: 1 !important;
+      grid-row: 1 !important;
+      margin-right: 0 !important;
+      gap: 2px !important;
+      padding: 3px !important;
+      align-self: center !important;
+    }
+
+    .lang-btn {
+      width: 30px !important;
+      height: 26px !important;
+      font-size: 14px !important;
+    }
+
+    .nav-logo {
+      grid-column: 2 !important;
+      grid-row: 1 !important;
+      min-width: 0 !important;
+      justify-self: start !important;
+      align-self: center !important;
+      gap: 0 !important;
+    }
+
+    .nav-logo-word {
+      font-size: 25px !important;
+      line-height: 0.95 !important;
+      white-space: nowrap !important;
+    }
+
+    .nav-logo-sub {
+      font-size: 7.5px !important;
+      letter-spacing: 0.11em !important;
+      white-space: nowrap !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+      max-width: 170px !important;
+      margin-top: 4px !important;
+    }
+
+    .nav-links {
+      grid-column: 1 / 4 !important;
+      grid-row: 2 !important;
+      display: grid !important;
+      grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+      gap: 6px !important;
+      width: 100% !important;
+      align-items: center !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    .nav-links li {
+      display: flex !important;
+      justify-content: center !important;
+      min-width: 0 !important;
+    }
+
+    .nav-links li:last-child {
+      grid-column: 3 !important;
+      grid-row: 1 !important;
+      position: absolute !important;
+      top: -53px !important;
+      right: 0 !important;
+      width: auto !important;
+    }
+
+    .nav-links li:not(:last-child) a {
+      width: 100% !important;
+      min-height: 30px !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      text-align: center !important;
+      padding: 7px 5px !important;
+      border: 1px solid rgba(201,168,76,0.22) !important;
+      border-radius: 999px !important;
+      background: rgba(255,255,255,0.72) !important;
+      font-size: 8.5px !important;
+      line-height: 1.15 !important;
+      letter-spacing: 0.055em !important;
+      white-space: normal !important;
+    }
+
+    .nav-links a::after { display: none !important; }
+
+    .nav-contact-btn {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      min-height: 42px !important;
+      padding: 10px 15px !important;
+      font-size: 10px !important;
+      line-height: 1 !important;
+      letter-spacing: 0.12em !important;
+      white-space: nowrap !important;
+      border-radius: 3px !important;
+      box-shadow: 0 8px 20px rgba(13,27,62,0.12) !important;
+    }
+
+    .hero {
+      margin-top: 118px !important;
+      height: calc(100svh - 118px) !important;
+      min-height: 560px !important;
+      background: var(--off-white) !important;
+    }
+
+    .hero::before,
+    .hero::after {
+      display: block !important;
+    }
+
+    #hero-main-image {
+      inset: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      object-position: center center !important;
+      background: var(--off-white) !important;
+    }
+
+    .floating-socials {
+      right: 16px !important;
+      bottom: calc(env(safe-area-inset-bottom, 0px) + 72px) !important;
+      gap: 10px !important;
+    }
+
+    .floating-social-btn {
+      width: 50px !important;
+      height: 50px !important;
+    }
+
+    .floating-social-btn svg {
+      width: 25px !important;
+      height: 25px !important;
+    }
+
+    /* MOBILE PROJECTS ACCORDION */
+    #projects .projects-grid {
+      gap: 14px !important;
+    }
+
+    #projects .project-block {
+      overflow: hidden !important;
+      border-radius: 6px !important;
+    }
+
+    #projects .project-block .block-header {
+      cursor: pointer !important;
+      position: relative !important;
+      padding-right: 50px !important;
+      user-select: none !important;
+      -webkit-tap-highlight-color: transparent !important;
+    }
+
+    #projects .project-block .block-header::after {
+      content: '+';
+      position: absolute;
+      right: 22px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 24px;
+      height: 24px;
+      border: 1px solid rgba(201,168,76,0.55);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    #projects .project-block.mobile-open .block-header::after {
+      content: '−';
+    }
+
+    #projects .project-category-cards {
+      display: none !important;
+      padding: 20px 16px 22px !important;
+    }
+
+    #projects .project-block.mobile-open .project-category-cards {
+      display: grid !important;
+    }
+  }
+
+  @media (max-width: 390px) {
+    nav {
+      height: 114px !important;
+      grid-template-rows: 52px 32px !important;
+      padding: 9px 10px 8px !important;
+    }
+
+    .nav-logo-word { font-size: 22px !important; }
+    .nav-logo-sub {
+      max-width: 135px !important;
+      font-size: 6.5px !important;
+      letter-spacing: 0.08em !important;
+    }
+
+    .lang-btn { width: 28px !important; }
+
+    .nav-contact-btn {
+      min-height: 40px !important;
+      padding: 9px 11px !important;
+      font-size: 8.8px !important;
+      letter-spacing: 0.09em !important;
+    }
+
+    .nav-links li:not(:last-child) a {
+      font-size: 7.8px !important;
+      padding: 7px 3px !important;
+      letter-spacing: 0.035em !important;
+    }
+
+    .hero {
+      margin-top: 114px !important;
+      height: calc(100svh - 114px) !important;
+      min-height: 540px !important;
+    }
+  }
+
+</style>
+</head>
+<body>
+<!-- NAV -->
+<nav>
+<div class="lang-switch" aria-label="Language switch">
+<button class="lang-btn active" data-lang-btn="ru" onclick="setLanguage('ru')" title="Русская версия">🇷🇺</button>
+<button class="lang-btn" data-lang-btn="en" onclick="setLanguage('en')" title="English version">🇬🇧</button>
+</div>
+<a class="nav-logo nav-logo-text" href="#" aria-label="Dock Point">
+  <div class="nav-logo-word">Dock Point</div>
+  <div class="nav-logo-sub" data-i18n="nav.logo.sub">Недвижимость на Пхукете</div>
+</a>
+<ul class="nav-links">
+<li><a href="#phuket" data-i18n="nav.phuket">Почему Пхукет?</a></li>
+<li><a href="#projects" data-i18n="nav.projects">Наши проекты</a></li>
+<li><a href="#whoweare" data-i18n="nav.about">Кто мы?</a></li>
+<li><a class="nav-contact-btn" href="#contact">Связаться</a></li>
+</ul>
+</nav>
+<!-- HERO -->
+<section class="hero" id="hero">
+<img id="hero-main-image" alt="Dock Point — Недвижимость на Пхукете" src="assets/images/image-01.jpg" data-src-ru="assets/images/image-01.jpg" data-src-en="assets/images/image-02.png" data-mobile-src-ru="assets/images/mobile-hero-logo.png" data-mobile-src-en="assets/images/mobile-hero-logo.png" data-alt-ru="Dock Point — Недвижимость на Пхукете" data-alt-en="Dock Point — Real Estate in Phuket" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;"/>
+</section>
+<!-- PROJECTS -->
+<section id="phuket">
+<div class="phuket-inner">
+<div class="section-label" data-i18n="phuket.label">Локация</div>
+<h2 class="section-title" data-i18n="phuket.title">Почему Пхукет?</h2>
+<div class="divider"></div>
+<p class="phuket-lead" data-i18n="phuket.lead">Пхукет давно перестал быть просто островом для отпуска. Сегодня это один из самых удобных и понятных рынков для жизни, отдыха и инвестиций в Юго-Восточной Азии: с развитой инфраструктурой, комфортным климатом, высоким спросом на аренду и понятной логикой владения недвижимостью.</p>
+<div class="phuket-cards">
+<div class="phuket-card">
+<div class="phuket-card-content">
+<div class="phuket-card-heading">
+<svg class="phuket-card-icon" viewbox="0 0 24 24"><path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z"></path></svg>
+<h3 data-i18n="phuket.infrastructure.title">Развитая инфраструктура</h3>
+</div>
+<p data-i18n="phuket.infrastructure.text">Международный аэропорт — прямые рейсы в 30+ стран и 80 городов. Международные школы, клиники, коворкинги, рестораны. Налоговая среда: иностранцы платят 0% на зарубежные доходы при соблюдении условий.</p>
+</div>
+<div class="phuket-card-photo"><img alt="Международная школа на Пхукете" src="assets/images/image-03.jpg"/></div>
+</div>
+<div class="phuket-card">
+<div class="phuket-card-content">
+<div class="phuket-card-heading">
+<svg class="phuket-card-icon" viewbox="0 0 24 24"><path d="M6.76 4.84l-1.8-1.79-1.41 1.41 1.79 1.79 1.42-1.41zM4 10.5H1v2h3v-2zm9-9.95h-2V3.5h2V.55zm7.45 3.91l-1.41-1.41-1.79 1.79 1.41 1.41 1.79-1.79zm-3.21 13.7l1.79 1.8 1.41-1.41-1.8-1.79-1.4 1.4zM20 10.5v2h3v-2h-3zm-8-5c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm-1 16.95h2V19.5h-2v2.95zm-7.45-3.91l1.41 1.41 1.79-1.8-1.41-1.41-1.79 1.8z"></path></svg>
+<h3 data-i18n="phuket.climate.title2">Благоприятный климат</h3>
+</div>
+<p data-i18n="phuket.climate.text2">Около 250 солнечных дней в году против 85 в Москве. Температура 27–30°С, морской бриз, купание круглый год. Солнце и тепло здесь — не отпуск на две недели, а ежедневная среда.</p>
+</div>
+<div class="phuket-card-photo"><img alt="Пляж, море и солнечный климат Пхукета" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&amp;fit=crop&amp;w=900&amp;q=82"/></div>
+</div>
+<div class="phuket-card">
+<div class="phuket-card-content">
+<div class="phuket-card-heading">
+<svg class="phuket-card-icon" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11h16v1c0 4.42-3.58 8-8 8s-8-3.58-8-8v-1zm2.35 2c.48 2.84 2.84 5 5.65 5s5.17-2.16 5.65-5H6.35zM17.8 4.05c-3.58.12-6.32 2.25-7.04 5.48 3.54.23 6.52-2.12 7.04-5.48zM7.4 4.6c2.25.12 3.92 1.43 4.38 3.45-2.36.08-4.18-1.32-4.38-3.45z"></path></svg>
+<h3 data-i18n="phuket.food.title">Чистая и здоровая пища</h3>
+</div>
+<p data-i18n="phuket.food.text">Круглогодичные свежие фрукты, морепродукты, овощи. Часто дешевле, чем в Москве при покупке на локальных рынках. Здоровый быт без ощущения, что это отдельный дорогой проект.</p>
+</div>
+<div class="phuket-card-photo"><img alt="Свежая здоровая еда, фрукты и овощи" src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&amp;fit=crop&amp;w=900&amp;q=82"/></div>
+</div>
+<div class="phuket-card">
+<div class="phuket-card-content">
+<div class="phuket-card-heading">
+<svg class="phuket-card-icon" viewbox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"></path></svg>
+<h3 data-i18n="phuket.ready.title">Готовые апартаменты для жизни</h3>
+</div>
+<p data-i18n="phuket.ready.text">Все апартаменты сдаются с отделкой, мебельным пакетом, кухней и техникой. Формула простая: получили ключи — заезжайте и живите. Или сразу передавайте объект в аренду.</p>
+</div>
+<div class="phuket-card-photo"><img alt="Готовые апартаменты на Пхукете с видом на бассейн" src="assets/images/image-04.png"/></div>
+</div>
+<div class="phuket-card">
+<div class="phuket-card-content">
+<div class="phuket-card-heading">
+<svg class="phuket-card-icon" viewbox="0 0 24 24"><path d="M21 16v2a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-2l8-5V5.5L9 7V4l3-2 3 2v3l-2-1.5V11l8 5zm-5.5-1h-7L5 17h14l-3.5-2z"></path></svg>
+<h3 data-i18n="phuket.visa.title">Лёгкая визовая адаптация</h3>
+</div>
+<p data-i18n="phuket.visa.text2">Годовая виза при покупке от 7,5 млн ₽. 10-летняя виза для всей семьи — при покупке виллы от 45 млн ₽. Пхукет становится удобным вторым домом с легальным долгосрочным статусом.</p>
+</div>
+<div class="phuket-card-photo"><img alt="Самолет и путешествия — легкая визовая адаптация" src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&amp;fit=crop&amp;w=900&amp;q=82"/></div>
+</div>
+<div class="phuket-card">
+<div class="phuket-card-content">
+<div class="phuket-card-heading">
+<svg class="phuket-card-icon" viewbox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"></path></svg>
+<h3 data-i18n="phuket.invest.title">Инвестиционная привлекательность</h3>
+</div>
+<p data-i18n="phuket.invest.text2">Средняя доходность ~8% для вилл и до 10% для апартаментов. Доход в тайских батах — крепкой валюте, укрепившейся к доллару за 25 лет. Актив в международной юрисдикции с возможностью вывода средств в разные страны.</p>
+</div>
+<div class="phuket-card-photo"><img alt="Инвестиционная привлекательность недвижимости на Пхукете" src="assets/images/image-05.jpg"/></div>
+</div>
+</div>
+</div>
+</section>
+<section id="projects">
+<div class="projects-header">
+<div class="section-label" data-i18n="projects.label">Портфолио</div>
+<h2 class="section-title" data-i18n="projects.title">Тщательно отобранные проекты</h2>
+<div class="divider"></div>
+</div>
+<div class="projects-grid">
+<div class="project-block">
+<div class="block-header">
+<svg class="block-header-icon" viewbox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"></path></svg>
+<div>
+<div class="block-title" data-i18n="projects.invest.title">Инвестиционные объекты</div>
+<div class="block-subtitle" data-i18n="projects.invest.subtitle">Объекты с привлекательной ценой, локацией и понятной инвестиционной логикой</div>
+</div>
+<img alt="Инвестиционные объекты на Пхукете" class="block-header-preview" loading="lazy" src="https://cdn.kellerhenson.com/project/Floor-Plan-One-World-One-Exterior-Rooftop-4.jpg?format=webp&amp;quality=72&amp;width=400"/>
+</div>
+<div class="project-category-cards">
+<div class="project-card-new">
+<div class="project-tag" data-i18n="tag.apartments">Апартаменты</div>
+<h3 data-i18n="project.one.title">One World — апартаменты от 9 млн рублей</h3>
+<ul>
+<li data-i18n="project.one.1">800 метров до самого востребованного пляжа острова — Бангтао.</li>
+<li data-i18n="project.one.2">студии и апартаменты с 1–2 спальнями.</li>
+<li data-i18n="project.one.3">уникальная скидка 27,7% на пул квартир на 2 и 3 этаже до конца лета</li>
+</ul>
+<a class="project-btn" data-ru-only-pdf="true" onclick="openPDF('One World')"><span data-i18n="project.open">Открыть презентацию</span></a>
+</div>
+<div class="project-card-new">
+<div class="project-tag" data-i18n="tag.apartments">Апартаменты</div>
+<h3 data-i18n="project.surin.title">Surin Sands — апартаменты от 11 млн рублей</h3>
+<ul>
+<li data-i18n="project.surin.1">650 метров до самого чистого пляжа острова — Сурин, и 800 метров до самого востребованного пляжа Пхукета — Бангтао.</li>
+<li data-i18n="project.surin.2">студии и апартаменты с 1–2 спальнями.</li>
+<li data-i18n="project.surin.3">недооценённый проект: на 25–30% дешевле конкурентов в аналогичной локации</li>
+</ul>
+<a class="project-btn" data-ru-only-pdf="true" onclick="openPDF('Surin Sands')"><span data-i18n="project.open">Открыть презентацию</span></a>
+</div>
+<div class="project-card-new">
+<div class="project-tag" data-i18n="tag.apartments">Апартаменты</div>
+<h3 data-i18n="project.andaman.title">Andaman — апартаменты от 15 млн рублей</h3>
+<ul>
+<li data-i18n="project.andaman.1">500 метров до самого востребованного пляжа острова — Бангтао.</li>
+<li data-i18n="project.andaman.2">1- и 2-комнатные квартиры от 34,5 кв.м.</li>
+<li data-i18n="project.andaman.3">премиальные материалы отделки</li>
+</ul>
+<a class="project-btn" data-ru-only-pdf="true" onclick="openPDF('Andaman')"><span data-i18n="project.open">Открыть презентацию</span></a>
+</div>
+</div>
+</div>
+<div class="project-block">
+<div class="block-header">
+<svg class="block-header-icon" viewbox="0 0 24 24"><path d="M12 2l2.9 6.1 6.7.9-4.8 4.7 1.1 6.6L12 17.2 6.1 20.3l1.1-6.6L2.4 9l6.7-.9L12 2z"></path></svg>
+<div>
+<div class="block-title" data-i18n="projects.branded.title">Премиальные резиденции от мировых брендов</div>
+<div class="block-subtitle" data-i18n="projects.branded.subtitle">Высокий спрос, уровень сервиса и международный статус</div>
+</div>
+<img alt="Премиальные резиденции на Пхукете" class="block-header-preview" loading="lazy" src="https://cdn.phuket.net/bucket/property/size/910/494/2025/02/6073-104.jpg?brand=88"/>
+</div>
+<div class="project-category-cards">
+<div class="project-card-new">
+<div class="project-tag" data-i18n="tag.apartments">Апартаменты</div>
+<h3 data-i18n="project.accor.title">Montazure Accor Residences — апартаменты от 25 млн рублей</h3>
+<ul>
+<li data-i18n="project.accor.1">600 метров до популярного пляжа Камала.</li>
+<li data-i18n="project.accor.2">апартаменты под управлением международной отельной сети Accor.</li>
+<li data-i18n="project.accor.3">большие студии и 1-комнатные апартаменты от 47 до 72 кв.м</li>
+</ul>
+<a class="project-btn" data-ru-only-pdf="true" onclick="openPDF('Montazure Accor Residences')"><span data-i18n="project.open">Открыть презентацию</span></a>
+</div>
+<div class="project-card-new">
+<div class="project-tag" data-i18n="tag.apartments">Апартаменты</div>
+<h3 data-i18n="project.hythe.title">Botanica Hythe — апартаменты от 27 млн рублей</h3>
+<ul>
+<li data-i18n="project.hythe.1">отдельный мини-город от Botanica — крупного застройщика вилл и премиальных резиденций на Пхукете.</li>
+<li data-i18n="project.hythe.2">1 км до пляжа Bangtao.</li>
+<li data-i18n="project.hythe.3">1-, 2- и 3-комнатные апартаменты с собственным бассейном от 56 до 219 кв.м.</li>
+<li data-i18n="project.hythe.4">дуплексы и пентхаусы от 300 до 700 кв.м</li>
+</ul>
+<a class="project-btn" data-ru-only-pdf="true" onclick="openPDF('Botanica Hythe')"><span data-i18n="project.open">Открыть презентацию</span></a>
+</div>
+<div class="project-card-new">
+<div class="project-tag" data-i18n="tag.apartments">Апартаменты</div>
+<h3 data-i18n="project.inter.title">Intercontinental Residences — апартаменты от 34 млн рублей</h3>
+<ul>
+<li data-i18n="project.inter.1">400 метров до популярного пляжа Камала.</li>
+<li data-i18n="project.inter.2">апартаменты под управлением международной отельной сети Intercontinental.</li>
+<li data-i18n="project.inter.3">1-, 2- и 3-комнатные апартаменты от 67 до 200 кв.м</li>
+</ul>
+<a class="project-btn" data-ru-only-pdf="true" onclick="openPDF('Intercontinental Residences')"><span data-i18n="project.open">Открыть презентацию</span></a>
+</div>
+</div>
+</div>
+<div class="project-block">
+<div class="block-header">
+<svg class="block-header-icon" viewbox="0 0 24 24"><path d="M12 3L2 12h3v8h5v-6h4v6h5v-8h3L12 3z"></path></svg>
+<div>
+<div class="block-title" data-i18n="projects.villas.title">Виллы</div>
+<div class="block-subtitle" data-i18n="projects.villas.subtitle">Пространство, приватность, бассейн и свой дом у моря</div>
+</div>
+<img alt="Виллы с бассейном на Пхукете" class="block-header-preview" loading="lazy" src="assets/images/image-06.jpg"/>
+</div>
+<div class="project-category-cards">
+<div class="project-card-new">
+<div class="project-tag" data-i18n="tag.villa">Вилла</div>
+<h3 data-i18n="project.redwood.title">Redwood Villas — виллы от 100 млн рублей</h3>
+<ul>
+<li data-i18n="project.redwood.1">уникальные виллы в самом центре Bangtao — вдалеке от шума и тусовок.</li>
+<li data-i18n="project.redwood.2">собственная инфраструктура: 4-полосная дорога, беговая дорожка вдоль озера, фонтан, площадки для йоги и выгула собак, фитнес-центр, ресторан и спа.</li>
+<li data-i18n="project.redwood.3">10 минут езды до пляжей Бангтао и Сурин.</li>
+<li data-i18n="project.redwood.4">5 минут до лучших ресторанов и магазинов Boat Avenue и Porto de Phuket</li>
+</ul>
+<a class="project-btn" data-ru-only-pdf="true" onclick="openPDF('Redwood Villas')"><span data-i18n="project.open">Открыть презентацию</span></a>
+</div>
+<div class="project-card-new">
+<div class="project-tag" data-i18n="tag.villa">Вилла</div>
+<h3 data-i18n="project.montvilla.title">Montazure Villas — виллы от 115 млн рублей</h3>
+<ul>
+<li data-i18n="project.montvilla.1">виллы от крупнейшего застройщика вилл на острове — компании Botanica.</li>
+<li data-i18n="project.montvilla.2">600 метров до пляжа Камала — очень близко для вилл.</li>
+<li data-i18n="project.montvilla.3">15 минут езды до Boat Avenue и Porto de Phuket с лучшими ресторанами острова</li>
+</ul>
+<a class="project-btn" data-ru-only-pdf="true" onclick="openPDF('Montazure Villas')"><span data-i18n="project.open">Открыть презентацию</span></a>
+</div>
+<div class="project-card-new">
+<div class="project-tag" data-i18n="tag.villa">Вилла</div>
+<h3 data-i18n="project.grand.title">Grand Avenue Villas — виллы от 120 млн рублей</h3>
+<ul>
+<li data-i18n="project.grand.1">виллы от крупнейшего застройщика вилл на острове — компании Botanica.</li>
+<li data-i18n="project.grand.2">отдельный мини-город с гольф-полем, бассейнами и спа.</li>
+<li data-i18n="project.grand.3">5–7 минут на авто до пляжей Бангтао и Лаян, Boat Avenue и лучших ресторанов острова</li>
+</ul>
+<a class="project-btn" data-ru-only-pdf="true" onclick="openPDF('Grand Avenue Villas')"><span data-i18n="project.open">Открыть презентацию</span></a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- PDF Modal -->
+<div class="pdf-modal" id="pdfModal">
+<div class="pdf-modal-inner">
+<div class="pdf-modal-header">
+<div>
+<div class="pdf-modal-title" id="pdfModalTitle" data-i18n="modal.title">Проект</div>
+<div class="pdf-modal-note"><a class="pdf-open-link" href="#" id="pdfOpenLink" rel="noopener" style="display:none;" target="_blank" data-i18n="modal.open">Открыть PDF в новом окне</a><span id="pdfModalNote" data-i18n="modal.note">Материалы проекта</span></div>
+</div>
+<button class="pdf-close" onclick="closePDF()">✕</button>
+</div>
+<iframe class="pdf-frame" id="pdfFrame" title="Презентация проекта"></iframe>
+<div class="pdf-placeholder" id="pdfPlaceholder">
+<svg class="pdf-placeholder-icon" viewbox="0 0 24 24"><path d="M20 2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8.5 7.5c0 .83-.67 1.5-1.5 1.5H9v2H7.5V7H10c.83 0 1.5.67 1.5 1.5v1zm5 2c0 .83-.67 1.5-1.5 1.5h-2.5V7H15c.83 0 1.5.67 1.5 1.5v3zm4-3H19v1h1.5V11H19v2h-1.5V7h3v1.5zM9 9.5h1v-1H9v1zM4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm10 5.5h1v-3h-1v3z"></path></svg>
+<h3 id="pdfPlaceholderTitle" data-i18n="modal.placeholder.title">Название проекта</h3>
+<p data-i18n="modal.placeholder.text">PDF-презентация для этого проекта пока не подключена.<br/><br/>Мы можем отправить актуальные материалы по запросу.</p>
+</div>
+</div>
+</div>
+<!-- PHUKET -->
+<!-- WHO WE ARE -->
+<section id="whoweare">
+<div class="whoweare-inner">
+<div class="whoweare-text">
+<div class="section-label" data-i18n="about.label">О компании</div>
+<h2 class="section-title" data-i18n="about.title">Кто мы?</h2>
+<div class="divider"></div>
+<p data-i18n="about.p1">Dock Point — бутиковое агентство недвижимости на Пхукете. Мы помогаем клиентам выбирать виллы и апартаменты для жизни, отдыха и инвестиций — не как случайную покупку за границей, а как часть продуманной системы жизни, капитала и свободы.</p>
+<p data-i18n="about.p2">Пхукет для наших клиентов — это место, где можно иметь второй дом у моря, зимовать с семьей, получать арендный доход, защитить часть капитала и жить в более свободном международном ритме.</p>
+<p data-i18n="about.p3">Наша задача — быть для клиента не «агентством с базой объектов», а надежным местным партнером. Мы сопровождаем покупателя на всех этапах: от подбора недвижимости и проверки документов до сделки, подготовки объекта к аренде, управления и дальнейшей перепродажи.</p>
+<p data-i18n="about.p4">Мы знаем рынок Пхукета изнутри, понимаем логику застройщиков, юридические нюансы, инвестиционный потенциал районов и реальные ожидания клиентов. Поэтому мы не просто показываем красивые виллы — мы помогаем выбрать объект, который соответствует целям человека.</p>
+</div>
+<div class="founder-column">
+<div class="founder-visual">
+<img alt="Никита Томилин" class="founder-photo" src="assets/images/image-07.png"/>
+<div class="founder-caption">
+<div class="founder-name">Никита Томилин</div>
+<div class="founder-role" data-i18n="about.role">Основатель и директор агентства</div>
+</div>
+</div>
+<div class="whoweare-tagline founder-quote">
+<p data-i18n="about.quote">Dock Point — это точка опоры у моря.<br/>
+Мы помогаем найти не просто квадратные метры, а второй дом на Пхукете: там, где море и солнце круглый год — а недвижимость работает как источник валютного дохода и защита вашего капитала в признанной международной юрисдикции.</p>
+<div class="tagline-accent">Dock Point</div>
+</div>
+</div>
+</div>
+</section>
+<!-- TRUST -->
+<section id="trust">
+<div class="trust-inner">
+<div class="section-label" data-i18n="trust.label">Доверие</div>
+<h2 class="section-title" data-i18n="trust.title">Почему нам можно доверять?</h2>
+<div class="divider"></div>
+<div class="trust-grid">
+<div class="trust-item">
+<div class="trust-check">✓</div>
+<div>
+<h3 data-i18n="trust.local.title">Живём и работаем на Пхукете</h3>
+<p data-i18n="trust.local.text">Знаем районы, застройщиков и реальные цены изнутри — не продаём остров по картинкам из презентации.</p>
+</div>
+</div>
+<div class="trust-item">
+<div class="trust-check">✓</div>
+<div>
+<h3 data-i18n="trust.moscow.title">Представительство в Москве и Санкт-Петербурге</h3>
+<p data-i18n="trust.moscow.text">Поддержка «вживую» гарантирована: с нами можно встретиться, обсудить детали и спокойно разобрать документы.</p>
+</div>
+</div>
+<div class="trust-item">
+<div class="trust-check">✓</div>
+<div>
+<h3 data-i18n="trust.strategy.title">Подбираем объект под задачу</h3>
+<p data-i18n="trust.strategy.text">Жизнь, аренда, перепродажа — это разные стратегии. Мы не зависим от одного застройщика и можем предлагать разные варианты.</p>
+</div>
+</div>
+<div class="trust-item">
+<div class="trust-check">✓</div>
+<div>
+<h3 data-i18n="trust.legal.title">Сильный юридический блок</h3>
+<p data-i18n="trust.legal.text">Сотрудничаем сразу с 2 юридическими компаниями — тайской и международной. Делаем обязательную проверку проектов на юридическую чистоту: проверяем наличие сертификатов, разрешений, собственности на земле, репутацию застройщика, состояние объекта.</p>
+</div>
+</div>
+<div class="trust-item">
+<div class="trust-check">✓</div>
+<div>
+<h3 data-i18n="trust.experience.title">Большой международный опыт</h3>
+<p data-i18n="trust.experience.text">Суммарно более 20 лет работы в США и Таиланде: понимаем ожидания русскоязычных клиентов и международные стандарты сервиса.</p>
+</div>
+</div>
+<div class="trust-item">
+<div class="trust-check">✓</div>
+<div>
+<h3 data-i18n="trust.commission.title">Без комиссии для покупателя</h3>
+<p data-i18n="trust.commission.text">В большинстве сделок нашу комиссию оплачивает застройщик или продавец — подбор объекта для покупателя бесплатный.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ -->
+<section id="faq">
+<div class="faq-inner">
+<div class="section-label" data-i18n="faq.label">FAQ</div>
+<h2 class="section-title" data-i18n="faq.title">Частые вопросы</h2>
+<div class="divider"></div>
+<div class="faq-list">
+<details class="faq-item" open="">
+<summary data-i18n="faq.q1">Можно ли иностранцу купить недвижимость на Пхукете?</summary>
+<div class="faq-answer" data-i18n="faq.a1">Да. Иностранцы могут покупать апартаменты в Таиланде в freehold — полное владение недвижимостью. По закону до 49% площади каждого здания может быть оформлено в freehold на иностранных покупателей. Остальные квартиры обычно приобретаются в leasehold — долгосрочную аренду на 30 лет с возможностью двух продлений: 30 + 30 + 30 = до 90 лет владения. С виллами схема другая: сама вилла оформляется в freehold, а земля под ней — в leasehold.</div>
+</details>
+<details class="faq-item faq-ru-cis-transfer">
+<summary data-i18n="faq.q2">Как перевести деньги из России или СНГ?</summary>
+<div class="faq-answer" data-i18n="faq.a2">Есть несколько рабочих способов: SWIFT-переводы через банки России, Казахстана и других стран СНГ, а также оплата в криптовалюте, которую принимают многие застройщики Таиланда. У нас есть проверенные партнёры, которые помогают организовать безопасный перевод и корректное зачисление платежа за объект.</div>
+</details>
+<details class="faq-item">
+<summary data-i18n="faq.q3">Как вы проверяете застройщиков?</summary>
+<div class="faq-answer" data-i18n="faq.a3">Мы проводим due diligence — юридическую и фактическую проверку проекта. Проверяем документы на землю, включая chanote, право застройщика распоряжаться участком, разрешения, EIA при необходимости, репутацию застройщика, стадию строительства и реальные темпы работ на площадке. Мы живём на Пхукете и можем лично контролировать стройплощадки.</div>
+</details>
+<details class="faq-item">
+<summary data-i18n="faq.q4">Как принять квартиру или виллу после покупки?</summary>
+<div class="faq-answer" data-i18n="faq.a4">Вы можете приехать на Пхукет и принять объект лично либо оформить доверенность, и мы примем квартиру или виллу за вас. Большинство объектов на Пхукете сдаются уже с отделкой, мебелью и техникой — по принципу «заезжай и живи».</div>
+</details>
+<details class="faq-item">
+<summary data-i18n="faq.q5">Как сдать квартиру или виллу в аренду?</summary>
+<div class="faq-answer" data-i18n="faq.a5">Вы можете сдавать объект самостоятельно или передать его в управление нам. Dock Point помогает подготовить объект к сдаче, сделать фото и описание, разместить объект на площадках, искать арендаторов, заселять и выселять гостей, контролировать оплату и следить за состоянием объекта.</div>
+</details>
+<details class="faq-item">
+<summary data-i18n="faq.q6">Как получать доход от аренды, находясь в России?</summary>
+<div class="faq-answer" data-i18n="faq.a6">Если объект сдаётся через нас, мы можем организовать удобный способ получения дохода: например, переводить деньги в рублях на российскую карту или передавать наличными в Москве через проверенных партнёров. Вам не нужно постоянно находиться на Пхукете, чтобы объект работал.</div>
+</details>
+<details class="faq-item">
+<summary data-i18n="faq.q7">На какой доход от аренды можно рассчитывать?</summary>
+<div class="faq-answer" data-i18n="faq.a7">Доходность зависит от района, типа объекта, сезона, качества управления и цены покупки. В нашей практике ориентиры такие: виллы — 7–8% годовых в валюте, апартаменты — 9–10% годовых в валюте.</div>
+</details>
+<details class="faq-item">
+<summary data-i18n="faq.q8">Как потом продать квартиру или виллу?</summary>
+<div class="faq-answer" data-i18n="faq.a8_alt">Мы не исчезаем после сделки. Dock Point занимается не только первичными продажами от застройщиков, но и перепродажей вторичной недвижимости. Если через несколько лет вы захотите зафиксировать прибыль, вернуть деньги или переложиться в другой объект — мы поможем с перепродажей.</div>
+</details>
+<details class="faq-item">
+<summary data-i18n="faq.q9_alt">Что будет, если случится цунами?</summary>
+<div class="faq-answer" data-i18n="faq.a9_alt">Крупные цунами в Таиланде случаются крайне редко. Мы учитываем этот фактор при подборе недвижимости и отбираем объекты не на первой береговой линии, а в более спокойных и безопасных локациях, часто на возвышенности.</div>
+</details>
+<details class="faq-item">
+<summary data-i18n="faq.q10_alt">Что если недвижимость отберёт государство или король?</summary>
+<div class="faq-answer" data-i18n="faq.a10_alt">Иностранцы легально покупают недвижимость в Таиланде более 50 лет. Право иностранцев владеть квартирами в кондоминиумах закреплено в Condominium Act B.E. 2522, принятом в 1979 году. Нам неизвестны случаи в современной истории Таиланда, когда у иностранного покупателя просто «отобрали» законно оформленную квартиру или виллу.</div>
+</details>
+</div>
+</div>
+</section>
+<!-- CONTACT -->
+<section id="contact">
+<div class="contact-inner">
+<div class="section-label" data-i18n="contact.label">Контакты</div>
+<h2 class="section-title" data-i18n="contact.title2">Связаться с нами</h2>
+<div class="divider"></div>
+<div class="contact-cards">
+<a class="contact-item" href="tel:+79162336813">
+<div class="contact-flag">🇷🇺</div>
+<div>
+<div class="contact-type" data-i18n="contact.russia2">Телефон — Россия</div>
+<div class="contact-value">+7 (916) 233-68-13</div>
+</div>
+</a>
+<a class="contact-item" href="tel:+66808423351">
+<div class="contact-flag">🇹🇭</div>
+<div>
+<div class="contact-type" data-i18n="contact.thailand2">Телефон — Таиланд</div>
+<div class="contact-value">+66 (80) 842-33-51</div>
+</div>
+</a>
+<a class="contact-item" href="mailto:dockpoint@outlook.com">
+<div class="contact-flag">✉️</div>
+<div>
+<div class="contact-type" data-i18n="contact.email2">Электронная почта</div>
+<div class="contact-value">dockpoint@outlook.com</div>
+</div>
+</a>
+</div>
+</div>
+</section>
+<!-- FOOTER -->
+<footer>
+<div>
+<div class="footer-brand">DOCK POINT</div>
+<div class="footer-sub" data-i18n="footer.sub">Недвижимость на Пхукете</div>
+</div>
+<p data-i18n="footer.copy">© 2025 Dock Point. Все права защищены.</p>
+</footer>
+<div class="floating-socials">
+<a aria-label="Написать в Telegram" class="floating-social-btn floating-telegram" href="tg://resolve?phone=79162336813"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.78 15.38l-.4 5.62c.57 0 .82-.24 1.12-.53l2.7-2.58 5.6 4.1c1.03.57 1.76.27 2.04-.95l3.7-17.36h0c.33-1.52-.55-2.12-1.56-1.74L1.3 10.27c-1.48.58-1.46 1.41-.25 1.79l5.55 1.73L19.5 5.66c.61-.4 1.16-.18.7.22"/></svg></a>
+<a aria-label="Написать в WhatsApp" class="floating-social-btn floating-whatsapp" href="https://wa.me/66808423351" onclick="openWhatsApp(event)" target="_blank"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.52 3.48A11.78 11.78 0 0 0 12.05 0C5.55 0 .27 5.28.27 11.78c0 2.08.54 4.11 1.58 5.91L0 24l6.49-1.7a11.73 11.73 0 0 0 5.56 1.42h.01c6.5 0 11.78-5.28 11.78-11.78 0-3.15-1.23-6.1-3.32-8.46zM12.06 21.7a9.86 9.86 0 0 1-5.03-1.38l-.36-.21-3.85 1 1.03-3.75-.24-.38a9.8 9.8 0 0 1-1.5-5.2c0-5.43 4.42-9.85 9.86-9.85 2.63 0 5.1 1.02 6.96 2.89a9.77 9.77 0 0 1 2.88 6.95c0 5.43-4.42 9.85-9.85 9.85zm5.4-7.37c-.3-.15-1.77-.87-2.05-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.48-1.77-1.65-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.21-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.05 1.03-1.05 2.52 0 1.5 1.07 2.94 1.22 3.14.15.2 2.1 3.21 5.08 4.49.71.31 1.27.49 1.7.63.72.23 1.38.2 1.9.12.58-.09 1.77-.72 2.02-1.42.25-.69.25-1.29.17-1.42-.07-.13-.27-.2-.57-.35z"/></svg></a>
+</div>
+
+<script>
+  const i18nEn = {
+    "nav.phuket": "Why Phuket?",
+    "nav.projects": "Projects",
+    "nav.about": "Who we are",
+    "nav.contact": "Contact",
+    "hero.brand": "Dock Point",
+    "hero.title": "Dock Point",
+    "hero.sub": "Phuket Real Estate",
+    "hero.cta": "Get a property selection",
+    "phuket.label": "Location",
+    "phuket.title": "Why Phuket?",
+    "phuket.lead": "Phuket is no longer just an island for holidays. Today it is one of Southeast Asia’s most convenient and understandable markets for living, leisure and investment: with developed infrastructure, a comfortable climate, strong rental demand and a clear property ownership logic.",
+    "phuket.infrastructure.title": "Developed infrastructure",
+    "phuket.infrastructure.text": "International airport — direct flights to 30+ countries and 80 cities. International schools, clinics, coworking spaces and restaurants. Tax environment: foreigners pay 0% tax on foreign-sourced income when the required conditions are met.",
+    "phuket.visa.title": "Easy visa adaptation",
+    "phuket.visa.text": "When purchasing property worth over 7.5 million RUB, you can obtain a one-year visa with annual renewal. When purchasing a villa from 45 million RUB, a 10-year visa is available for the whole family.",
+    "phuket.climate.title": "Comfortable climate",
+    "phuket.climate.text": "250 sunny days a year. The temperature usually stays around 27–30°C, and the sea breeze makes the climate feel softer. You can swim in the sea all year round.",
+    "phuket.food.title": "Clean and healthy food",
+    "phuket.food.text": "Fresh fruit, seafood and vegetables all year round. Often cheaper than in Moscow when bought at local markets. A healthy lifestyle without feeling like it is a separate expensive project.",
+    "phuket.ready.title": "Ready-to-live apartments",
+    "phuket.ready.text": "All apartments are delivered with finishing, furniture package, kitchen and appliances. The formula is simple: get the keys — move in and live. Or put the property into rental immediately.",
+    "projects.label": "Portfolio",
+    "projects.title": "Carefully selected projects",
+    "projects.invest.title": "Investment properties",
+    "projects.invest.subtitle": "Properties with attractive pricing, strong locations and clear investment logic",
+    "projects.branded.title": "Premium residences by global brands",
+    "projects.branded.subtitle": "High demand, level of service and international status",
+    "projects.villas.title": "Villas",
+    "projects.villas.subtitle": "Space, privacy, a pool and your own home by the sea",
+    "tag.apartments": "Apartments",
+    "tag.exhibition": "Exhibition pick",
+    "tag.villa": "Villa",
+    "project.open": "Open presentation",
+    "project.one.title": "One World — apartments from 9 million RUB",
+    "project.one.1": "800 meters to Bang Tao, the island’s most in-demand beach.",
+    "project.one.2": "Studios and 1–2 bedroom apartments.",
+    "project.one.3": "A unique 27.7% discount on a pool of units on the 2nd and 3rd floors until the end of summer.",
+    "project.surin.title": "Surin Sands — apartments from 11 million RUB",
+    "project.surin.1": "650 meters to Surin, one of the island’s cleanest beaches, and 800 meters to Bang Tao, Phuket’s most in-demand beach.",
+    "project.surin.2": "Studios and 1–2 bedroom apartments.",
+    "project.surin.3": "Undervalued project: 25–30% cheaper than competitors in a similar location.",
+    "project.andaman.title": "Andaman — apartments from 15 million RUB",
+    "project.andaman.1": "500 meters to Bang Tao, the island’s most in-demand beach.",
+    "project.andaman.2": "1- and 2-bedroom apartments from 34.5 sq.m.",
+    "project.andaman.3": "Premium finishing materials.",
+    "project.accor.title": "Montazure Accor Residences — apartments from 25 million RUB",
+    "project.accor.1": "600 meters to popular Kamala Beach.",
+    "project.accor.2": "Apartments managed by the international hotel group Accor.",
+    "project.accor.3": "Large studios and 1-bedroom apartments from 47 to 72 sq.m.",
+    "project.hythe.title": "Botanica Hythe — apartments from 27 million RUB",
+    "project.hythe.1": "A standalone mini-city by Botanica, a major Phuket developer of villas and premium residences.",
+    "project.hythe.2": "1 km to Bang Tao Beach.",
+    "project.hythe.3": "1-, 2- and 3-bedroom apartments with private pools from 56 to 219 sq.m.",
+    "project.hythe.4": "Duplexes and penthouses from 300 to 700 sq.m.",
+    "project.inter.title": "Intercontinental Residences — apartments from 34 million RUB",
+    "project.inter.1": "400 meters to popular Kamala Beach.",
+    "project.inter.2": "Apartments managed by the international hotel brand InterContinental.",
+    "project.inter.3": "1-, 2- and 3-bedroom apartments from 67 to 200 sq.m.",
+    "project.redwood.title": "Redwood Villas — villas from 100 million RUB",
+    "project.redwood.1": "Unique villas in the heart of Bang Tao — away from noise and nightlife.",
+    "project.redwood.2": "Private infrastructure: a 4-lane road, lakeside running track, fountain, yoga and dog-walking areas, fitness center, restaurant and spa.",
+    "project.redwood.3": "10 minutes by car to Bang Tao and Surin beaches.",
+    "project.redwood.4": "5 minutes to the best restaurants and shops at Boat Avenue and Porto de Phuket.",
+    "project.montvilla.title": "Montazure Villas — villas from 115 million RUB",
+    "project.montvilla.1": "Villas by Botanica, the island’s largest villa developer.",
+    "project.montvilla.2": "600 meters to Kamala Beach — exceptionally close for villas.",
+    "project.montvilla.3": "15 minutes by car to Boat Avenue and Porto de Phuket with the island’s best restaurants.",
+    "project.grand.title": "Grand Avenue Villas — villas from 120 million RUB",
+    "project.grand.1": "Villas by Botanica, the island’s largest villa developer.",
+    "project.grand.2": "A standalone mini-city with a golf course, pools and spa.",
+    "project.grand.3": "5–7 minutes by car to Bang Tao and Layan beaches, Boat Avenue and the island’s best restaurants.",
+    "about.label": "About us",
+    "about.title": "Who we are",
+    "about.p1": "Dock Point is a boutique real estate agency in Phuket. We help clients choose villas and apartments for living, leisure and investment — not as a random purchase abroad, but as part of a thoughtful system of life, capital and freedom.",
+    "about.p2": "For our clients, Phuket is a place where they can have a second home by the sea, spend winters with family, earn rental income, protect part of their capital and live in a freer international rhythm.",
+    "about.p3": "Our task is not to be “an agency with a database of properties”, but a reliable local partner. We support buyers at every stage: from property selection and document checks to the transaction, rental preparation, management and future resale.",
+    "about.p4": "We know the Phuket market from the inside, understand developer logic, legal nuances, the investment potential of different areas and real client expectations. So we do not just show beautiful villas — we help choose a property that matches the client’s goals.",
+    "about.role": "Founder and agency director",
+    "about.quote": "Dock Point is a point of stability by the sea.<br/>We help you find more than square meters: a second home in Phuket, where the sea and sun are here all year round — while the property works as a source of foreign-currency income and a way to protect your capital in a recognized international jurisdiction.",
+    "trust.label": "Trust",
+    "trust.title": "Why you can trust us",
+    "trust.local.title": "We live and work in Phuket",
+    "trust.local.text": "We know the districts, developers and real prices from the inside — we do not sell the island using presentation pictures only.",
+    "trust.moscow.title": "Representation in Moscow and Saint Petersburg",
+    "trust.moscow.text": "In-person support is guaranteed: you can meet with us, discuss details and calmly review documents.",
+    "trust.strategy.title": "We select property for your goal",
+    "trust.strategy.text": "Living, renting out and resale are different strategies. We are not tied to one developer and can offer different options.",
+    "trust.legal.title": "Strong legal support",
+    "trust.legal.text": "We work with 2 legal companies at once — Thai and international. We perform mandatory legal checks of projects: certificates, permits, land ownership, developer reputation and the condition of the property.",
+    "trust.experience.title": "Strong international experience",
+    "trust.experience.text": "More than 20 years of combined experience in the USA and Thailand: we understand the expectations of Russian-speaking clients and international service standards.",
+    "trust.commission.title": "No commission for the buyer",
+    "trust.commission.text": "In most transactions, our commission is paid by the developer or seller — property selection is free for the buyer.",
+    "faq.label": "FAQ",
+    "faq.title": "Frequently asked questions",
+    "faq.q1": "Can a foreigner buy property in Phuket?",
+    "faq.a1": "Yes. Foreigners can buy apartments in Thailand in freehold — full ownership of the property. By law, up to 49% of each condominium building can be registered in foreign freehold. The remaining units are usually purchased in leasehold — a long-term 30-year lease with two possible extensions: 30 + 30 + 30 = up to 90 years. Villas work differently: the villa itself is freehold, while the land underneath is leasehold.",
+    "faq.q2": "How can I transfer money from Russia or the CIS?",
+    "faq.a2": "There are several working options: SWIFT transfers through banks in Russia, Kazakhstan and other CIS countries, as well as cryptocurrency payments accepted by many Thai developers. We have trusted partners who help arrange a safe transfer and correct allocation of the payment to the property.",
+    "faq.q3": "How do you check developers?",
+    "faq.a3": "We carry out due diligence — both legal and factual review of the project. We check land documents, including chanote, the developer’s right to dispose of the land, permits, EIA when required, the developer’s reputation, construction stage and actual progress on site. We live in Phuket and can personally monitor construction sites.",
+    "faq.q4": "How do I accept handover of an apartment or villa after purchase?",
+    "faq.a4": "You can come to Phuket and accept the property personally, or issue a power of attorney and we will accept the apartment or villa on your behalf. Most Phuket properties are delivered with finishing, furniture and appliances — ready to move in.",
+    "faq.q5": "How can I rent out an apartment or villa?",
+    "faq.a5": "You can rent the property out yourself or let us manage it. Dock Point helps prepare the property for rent, create photos and descriptions, list it on platforms, find tenants, handle check-ins and check-outs, control payments and monitor the property’s condition.",
+    "faq.q6": "How can I receive rental income while staying in Russia?",
+    "faq.a6": "If the property is rented through us, we can arrange a convenient way to receive income: for example, transfer funds in rubles to a Russian card or deliver cash in Moscow through trusted partners. You do not need to stay in Phuket permanently for the property to work.",
+    "faq.q7": "What rental income can I expect?",
+    "faq.a7": "Yield depends on the area, property type, season, management quality and purchase price. In our practice, the benchmarks are: villas — 7–8% per year in foreign currency, apartments — 9–10% per year in foreign currency.",
+    "faq.q8": "How can I sell the apartment or villa later?",
+    "faq.a8": "We can help with resale: evaluate the property, prepare marketing materials, list it on platforms, find a buyer, negotiate and support the transaction. Phuket has an active resale market, especially in liquid locations.",
+    "faq.q9": "What if the King takes the property away?",
+    "faq.a9": "There are no known cases in modern Thai history of property being taken away from foreign real estate buyers. Especially since the Foreign Condominium Act was adopted in 1979, creating a clear legal framework for foreign apartment ownership. Buying property in Thailand is a normal international practice used by investors from around the world.",
+    "faq.q10": "How much does transaction support cost?",
+    "faq.a10": "For the buyer, property selection and transaction support are usually free: the agency commission is paid by the developer or seller. For non-standard legal, tax or management tasks, additional service fees are discussed separately.",
+    "contact.label": "Contacts",
+    "contact.title": "Get a property selection",
+    "contact.russia": "Russia",
+    "contact.thailand": "Thailand",
+    "contact.telegram": "Telegram / WhatsApp",
+    "modal.title": "Project",
+    "modal.open": "Open PDF in a new window",
+    "modal.note": "Project materials",
+    "modal.placeholder.title": "Project name",
+    "modal.placeholder.text": "The PDF presentation for this project is not connected yet.<br/><br/>We can send the latest materials on request.",
+    "footer.sub": "Phuket Real Estate",
+    "nav.logo.sub": "Boutique Real Estate Agency",
+    "phuket.climate.title2": "Comfortable climate",
+    "phuket.climate.text2": "Around 250 sunny days a year compared with 50 in London and 60 in Berlin. The temperature stays around 27–30°C, with sea breeze and year-round swimming. Sun and warmth here are not a two-week holiday — they are the everyday environment.",
+    "phuket.invest.title": "Investment attractiveness",
+    "phuket.invest.text": "High rental demand, limited supply in the best locations, and rising prices for land and property. Phuket real estate can be not only a second home, but also a foreign-currency asset.",
+    "nav.contact": "Contact",
+    "about.founder.name": "Nikita Tomilin",
+    "phuket.visa.text2": "A one-year visa is available when purchasing property from 7.5 million RUB. A 10-year visa for the whole family is available when purchasing a villa from 45 million RUB. Phuket becomes a convenient second home with a legal long-term status.",
+    "phuket.invest.text2": "Average yield is around 8% for villas and up to 10% for apartments. Income is received in Thai baht — a strong currency that has strengthened against the dollar over the past 25 years. This is an asset in an international jurisdiction with the ability to move funds across different countries.",
+    "faq.q8": "How can I sell the apartment or villa later?",
+    "faq.a8_alt": "We do not disappear after the transaction. Dock Point works not only with primary sales from developers, but also with resale properties. If in a few years you want to lock in profit, return your money, or move into another property, we can help with the resale.",
+    "faq.q9_alt": "What happens if there is a tsunami?",
+    "faq.a9_alt": "Major tsunamis in Thailand are extremely rare. We take this factor into account when selecting properties and choose projects not on the first coastline, but in calmer and safer locations, often on higher ground.",
+    "faq.q10_alt": "What if the state or the King takes the property away?",
+    "faq.a10_alt": "Foreigners have been legally buying property in Thailand for more than 50 years. The right of foreigners to own condominium apartments is established by the Condominium Act B.E. 2522, adopted in 1979. We are not aware of any cases in modern Thai history where a legally registered apartment or villa was simply “taken away” from a foreign buyer.",
+    "about.founder.name": "Nikita Tomilin",
+    "contact.label2": "Contacts",
+    "contact.title2": "Contact us",
+    "contact.russia2": "Phone — Russia",
+    "contact.thailand2": "Phone — Thailand",
+    "contact.email2": "Email",
+    "nav.contact": "Contact",
+    "about.founder.name": "Nikita Tomilin",
+    "faq.q6": "How can I receive rental income while staying in my country?",
+    "faq.a6": "If the property is rented through us, we will arrange a convenient way to receive income: transfer funds to your bank account in USA, GB or any other country. You do not need to stay in Phuket for the property to work.",
+    "footer.copy": "© 2025 Dock Point. All rights reserved."
+};
+
+  const i18nRu = {};
+
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('[data-i18n]').forEach(function(el) {
+      i18nRu[el.dataset.i18n] = el.innerHTML;
+    });
+    const savedLang = localStorage.getItem('dockPointLang') || 'ru';
+    setLanguage(savedLang);
+  });
+
+  function setLanguage(lang) {
+    const dict = lang === 'en' ? i18nEn : i18nRu;
+    document.querySelectorAll('[data-i18n]').forEach(function(el) {
+      const key = el.dataset.i18n;
+      if (dict[key] !== undefined) {
+        el.innerHTML = dict[key];
+      }
+    });
+
+    document.documentElement.lang = lang;
+    document.documentElement.setAttribute('data-lang', lang);
+    if (document.body) document.body.classList.toggle('lang-en', lang === 'en');
+    localStorage.setItem('dockPointLang', lang);
+
+    document.querySelectorAll('[data-lang-btn]').forEach(function(btn) {
+      btn.classList.toggle('active', btn.dataset.langBtn === lang);
+    });
+
+    // Hard overrides for elements that must switch cleanly in EN/RU
+    const navContact = document.querySelector('.nav-contact-btn');
+    if (navContact) {
+      navContact.innerHTML = lang === 'en' ? 'Contact' : 'Связаться';
+    }
+
+    document.querySelectorAll('[data-i18n="about.founder.name"]').forEach(function(el) {
+      el.innerHTML = lang === 'en' ? 'Nikita Tomilin' : 'Никита Томилин';
+    });
+
+    const founderCaption = document.querySelector('.founder-caption');
+    if (founderCaption) {
+      founderCaption.style.display = lang === 'en' ? 'none' : 'block';
+    }
+
+    const ruCisTransferFaq = document.querySelector('.faq-ru-cis-transfer');
+    if (ruCisTransferFaq) {
+      ruCisTransferFaq.style.display = lang === 'en' ? 'none' : '';
+    }
+
+    const russiaContactCard = document.querySelector('.contact-russia-card');
+    if (russiaContactCard) {
+      russiaContactCard.style.display = lang === 'en' ? 'none' : '';
+    }
+
+    const telegramButton = document.querySelector('.floating-telegram');
+    if (telegramButton) {
+      telegramButton.style.display = lang === 'en' ? 'none' : 'flex';
+    }
+
+    // Hide project PDF buttons in English version because presentations are currently in Russian
+    syncProjectPresentationButtons(lang);
+
+    document.querySelectorAll('.contact-card').forEach(function(card) {
+      const text = card.innerText || '';
+      const isRussiaPhone = text.includes('+7') || text.includes('Phone — Russia') || text.includes('Телефон — Россия');
+      if (isRussiaPhone) {
+        card.style.display = lang === 'en' ? 'none' : '';
+      }
+    });
+
+    updateHeroImage();
+  }
+
+
+  function syncProjectPresentationButtons(lang) {
+    const isEnglish = lang === 'en';
+    document.documentElement.setAttribute('data-lang', lang);
+    document.body.classList.toggle('lang-en', isEnglish);
+
+    document.querySelectorAll('#projects a[onclick^="openPDF"]').forEach(function(btn) {
+      btn.setAttribute('data-ru-only-pdf', 'true');
+
+      if (isEnglish) {
+        btn.hidden = true;
+        btn.setAttribute('aria-hidden', 'true');
+        btn.style.setProperty('display', 'none', 'important');
+        btn.style.setProperty('visibility', 'hidden', 'important');
+        btn.style.setProperty('pointer-events', 'none', 'important');
+      } else {
+        btn.hidden = false;
+        btn.removeAttribute('aria-hidden');
+        btn.style.removeProperty('display');
+        btn.style.removeProperty('visibility');
+        btn.style.removeProperty('pointer-events');
+      }
+    });
+  }
+
+  function updateHeroImage() {
+    const heroImage = document.getElementById('hero-main-image');
+    if (!heroImage) return;
+
+    const lang = localStorage.getItem('dockPointLang') || document.documentElement.lang || 'ru';
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+
+    const desktopSrc = lang === 'en' ? heroImage.dataset.srcEn : heroImage.dataset.srcRu;
+    const mobileSrc = lang === 'en' ? heroImage.dataset.mobileSrcEn : heroImage.dataset.mobileSrcRu;
+    const nextSrc = isMobile && mobileSrc ? mobileSrc : desktopSrc;
+    const nextAlt = lang === 'en' ? heroImage.dataset.altEn : heroImage.dataset.altRu;
+
+    if (nextSrc && !heroImage.src.endsWith(nextSrc)) heroImage.src = nextSrc;
+    if (nextAlt) heroImage.alt = nextAlt;
+  }
+
+  window.addEventListener('resize', updateHeroImage);
+</script>
+
+<script>
+  const projectPdfs = {
+    'One World': 'assets/pdfs/DP-One-World.pdf',
+    'Surin Sands': 'assets/pdfs/DP-Surin-Sands.pdf',
+    'Andaman': 'assets/pdfs/DP-Andam.pdf',
+    'Montazure Accor Residences': 'assets/pdfs/DP-M-Gallery.pdf',
+    'Botanica Hythe': 'assets/pdfs/DP-Hyth.pdf',
+    'Intercontinental Residences': 'assets/pdfs/DP-InterContinental-residences.pdf',
+    'Redwood Villas': 'assets/pdfs/DP-Redwood.pdf',
+    'Montazure Villas': 'assets/pdfs/DP-Montazure-Villa.pdf',
+    'Grand Avenue Villas': 'assets/pdfs/DP-Grand-Avenue.pdf'
+  };
+
+
+  function openWhatsApp(event) {
+    if (event) event.preventDefault();
+    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+    setTimeout(function() {
+      window.open('https://wa.me/66808423351?text=' + encodeURIComponent('Здравствуйте! Хочу получить подборку объектов на Пхукете.'), '_blank');
+    }, 450);
+  }
+
+  function openPDF(name) {
+    const modal = document.getElementById('pdfModal');
+    const title = document.getElementById('pdfModalTitle');
+    const placeholderTitle = document.getElementById('pdfPlaceholderTitle');
+    const placeholder = document.getElementById('pdfPlaceholder');
+    const pdfFrame = document.getElementById('pdfFrame');
+    const pdfOpenLink = document.getElementById('pdfOpenLink');
+    const pdfModalNote = document.getElementById('pdfModalNote');
+
+    title.textContent = name;
+    placeholderTitle.textContent = name;
+
+    if (projectPdfs[name]) {
+      pdfFrame.src = projectPdfs[name];
+      pdfFrame.style.display = 'block';
+      placeholder.style.display = 'none';
+      pdfOpenLink.href = projectPdfs[name];
+      pdfOpenLink.style.display = 'inline-block';
+      pdfModalNote.style.display = 'none';
+    } else {
+      pdfFrame.removeAttribute('src');
+      pdfFrame.style.display = 'none';
+      placeholder.style.display = 'flex';
+      pdfOpenLink.style.display = 'none';
+      pdfModalNote.style.display = 'inline';
+    }
+
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closePDF() {
+    document.getElementById('pdfModal').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  document.getElementById('pdfModal').addEventListener('click', function(e) {
+    if (e.target === this) closePDF();
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closePDF();
+  });
+
+  // Phuket section accordion: title cards stay visible, text and image open by click
+  document.addEventListener('DOMContentLoaded', function() {
+    const phuketCards = Array.from(document.querySelectorAll('#phuket .phuket-card'));
+
+    phuketCards.forEach(function(card) {
+      card.setAttribute('role', 'button');
+      card.setAttribute('tabindex', '0');
+      card.setAttribute('aria-expanded', 'false');
+
+      function togglePhuketCard() {
+        const isOpen = card.classList.contains('phuket-open');
+        card.classList.toggle('phuket-open', !isOpen);
+        card.setAttribute('aria-expanded', String(!isOpen));
+      }
+
+      card.addEventListener('click', togglePhuketCard);
+      card.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          togglePhuketCard();
+        }
+      });
+    });
+  });
+
+  // Smooth nav background
+  window.addEventListener('scroll', function() {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 60) {
+      nav.style.boxShadow = '0 2px 30px rgba(13,27,62,0.12)';
+    } else {
+      nav.style.boxShadow = '0 2px 20px rgba(13,27,62,0.07)';
+    }
+  });
+
+  // Mobile accordion for project categories
+  document.addEventListener('DOMContentLoaded', function() {
+    const mobileQuery = window.matchMedia('(max-width: 768px)');
+    const projectBlocks = Array.from(document.querySelectorAll('#projects .project-block'));
+
+    projectBlocks.forEach(function(block) {
+      const header = block.querySelector('.block-header');
+      if (!header) return;
+
+      header.setAttribute('role', 'button');
+      header.setAttribute('tabindex', '0');
+      header.setAttribute('aria-expanded', 'false');
+
+      function toggleBlock() {
+        if (!mobileQuery.matches) return;
+
+        const isOpen = block.classList.contains('mobile-open');
+
+        projectBlocks.forEach(function(otherBlock) {
+          otherBlock.classList.remove('mobile-open');
+          const otherHeader = otherBlock.querySelector('.block-header');
+          if (otherHeader) otherHeader.setAttribute('aria-expanded', 'false');
+        });
+
+        if (!isOpen) {
+          block.classList.add('mobile-open');
+          header.setAttribute('aria-expanded', 'true');
+        }
+      }
+
+      header.addEventListener('click', toggleBlock);
+      header.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          toggleBlock();
+        }
+      });
+    });
+
+    function resetAccordionOnDesktop() {
+      if (!mobileQuery.matches) {
+        projectBlocks.forEach(function(block) {
+          block.classList.remove('mobile-open');
+          const header = block.querySelector('.block-header');
+          if (header) header.setAttribute('aria-expanded', 'false');
+        });
+      }
+    }
+
+    if (mobileQuery.addEventListener) {
+      mobileQuery.addEventListener('change', resetAccordionOnDesktop);
+    } else if (mobileQuery.addListener) {
+      mobileQuery.addListener(resetAccordionOnDesktop);
+    }
+  });
+</script>
+</body>
+</html>
