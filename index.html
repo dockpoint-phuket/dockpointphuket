@@ -470,6 +470,9 @@
   html[lang="en"] #projects a[onclick^="openPDF"],
   html[data-lang="en"] #projects a[onclick^="openPDF"],
   body.lang-en #projects a[onclick^="openPDF"],
+  html[lang="pl"] #projects a[onclick^="openPDF"],
+  html[data-lang="pl"] #projects a[onclick^="openPDF"],
+  body.lang-pl #projects a[onclick^="openPDF"],
   #projects a[data-ru-only-pdf="true"][hidden] {
     display: none !important;
     visibility: hidden !important;
@@ -477,8 +480,9 @@
   }
 
 
-  /* Hide project presentation buttons in English version until EN PDFs are ready */
-  html[lang="en"] #projects .project-btn {
+  /* Hide project presentation buttons in non-Russian versions until localized PDFs are ready */
+  html[lang="en"] #projects .project-btn,
+  html[lang="pl"] #projects .project-btn {
     display: none !important;
   }
 
@@ -1692,6 +1696,7 @@
 <div class="lang-switch" aria-label="Language switch">
 <button class="lang-btn active" data-lang-btn="ru" onclick="setLanguage('ru')" title="Русская версия">🇷🇺</button>
 <button class="lang-btn" data-lang-btn="en" onclick="setLanguage('en')" title="English version">🇬🇧</button>
+<button class="lang-btn" data-lang-btn="pl" onclick="setLanguage('pl')" title="Polska wersja">🇵🇱</button>
 </div>
 <a class="nav-logo nav-logo-text" href="#" aria-label="Dock Point">
   <div class="nav-logo-word">Dock Point</div>
@@ -1706,7 +1711,7 @@
 </nav>
 <!-- HERO -->
 <section class="hero" id="hero">
-<img id="hero-main-image" alt="Dock Point — Недвижимость на Пхукете" src="assets/images/image-01.jpg" data-src-ru="assets/images/image-01.jpg" data-src-en="assets/images/image-02.png" data-mobile-src-ru="assets/images/mobile-hero-logo.png" data-mobile-src-en="assets/images/mobile-hero-logo.png" data-alt-ru="Dock Point — Недвижимость на Пхукете" data-alt-en="Dock Point — Real Estate in Phuket" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;"/>
+<img id="hero-main-image" alt="Dock Point — Недвижимость на Пхукете" src="assets/images/image-01.jpg" data-src-ru="assets/images/image-01.jpg" data-src-en="assets/images/image-02.png" data-mobile-src-ru="assets/images/mobile-hero-logo.png" data-mobile-src-en="assets/images/mobile-hero-logo.png" data-alt-ru="Dock Point — Недвижимость на Пхукете" data-alt-en="Dock Point — Real Estate in Phuket" data-alt-pl="Dock Point — Nieruchomości na Phuket" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;"/>
 </section>
 <!-- PROJECTS -->
 <section id="phuket">
@@ -2072,7 +2077,7 @@
 <h2 class="section-title" data-i18n="contact.title2">Связаться с нами</h2>
 <div class="divider"></div>
 <div class="contact-cards">
-<a class="contact-item" href="tel:+79162336813">
+<a class="contact-item contact-russia-card" href="tel:+79162336813">
 <div class="contact-flag">🇷🇺</div>
 <div>
 <div class="contact-type" data-i18n="contact.russia2">Телефон — Россия</div>
@@ -2265,6 +2270,154 @@
     "footer.copy": "© 2025 Dock Point. All rights reserved."
 };
 
+  const i18nPl = {
+    "nav.phuket": "Dlaczego Phuket?",
+    "nav.projects": "Projekty",
+    "nav.about": "Kim jesteśmy?",
+    "nav.contact": "Kontakt",
+    "hero.brand": "Dock Point",
+    "hero.title": "Dock Point",
+    "hero.sub": "Nieruchomości na Phuket",
+    "hero.cta": "Otrzymaj wybór nieruchomości",
+    "phuket.label": "Lokalizacja",
+    "phuket.title": "Dlaczego Phuket?",
+    "phuket.lead": "Phuket już dawno przestał być wyłącznie wyspą wakacyjną. Dziś to jeden z najbardziej wygodnych i zrozumiałych rynków w Azji Południowo-Wschodniej do życia, wypoczynku i inwestycji: z rozwiniętą infrastrukturą, komfortowym klimatem, wysokim popytem na wynajem i przejrzystą logiką posiadania nieruchomości.",
+    "phuket.infrastructure.title": "Rozwinięta infrastruktura",
+    "phuket.infrastructure.text": "Międzynarodowe lotnisko — bezpośrednie loty do ponad 30 krajów i 80 miast. Międzynarodowe szkoły, kliniki, coworkingi i restauracje. Środowisko podatkowe: cudzoziemcy płacą 0% podatku od dochodów zagranicznych przy spełnieniu wymaganych warunków.",
+    "phuket.visa.title": "Łatwa adaptacja wizowa",
+    "phuket.visa.text": "Przy zakupie nieruchomości o wartości powyżej 7,5 mln RUB można uzyskać roczną wizę z corocznym przedłużeniem. Przy zakupie willi od 45 mln RUB dostępna jest 10-letnia wiza dla całej rodziny.",
+    "phuket.climate.title": "Komfortowy klimat",
+    "phuket.climate.text": "Około 250 słonecznych dni w roku. Temperatura zwykle utrzymuje się na poziomie 27–30°C, a morska bryza łagodzi klimat. W morzu można kąpać się przez cały rok.",
+    "phuket.food.title": "Czyste i zdrowe jedzenie",
+    "phuket.food.text": "Świeże owoce, owoce morza i warzywa przez cały rok. Przy zakupach na lokalnych targach często taniej niż w Moskwie. Zdrowy styl życia bez poczucia, że to osobny kosztowny projekt.",
+    "phuket.ready.title": "Apartamenty gotowe do zamieszkania",
+    "phuket.ready.text": "Wszystkie apartamenty są przekazywane z wykończeniem, pakietem mebli, kuchnią i sprzętem AGD. Formuła jest prosta: odbierasz klucze — wprowadzasz się i mieszkasz. Albo od razu przekazujesz nieruchomość pod wynajem.",
+    "projects.label": "Portfolio",
+    "projects.title": "Starannie wybrane projekty",
+    "projects.invest.title": "Nieruchomości inwestycyjne",
+    "projects.invest.subtitle": "Obiekty z atrakcyjną ceną, mocną lokalizacją i jasną logiką inwestycyjną",
+    "projects.branded.title": "Rezydencje premium globalnych marek",
+    "projects.branded.subtitle": "Wysoki popyt, poziom obsługi i międzynarodowy status",
+    "projects.villas.title": "Wille",
+    "projects.villas.subtitle": "Przestrzeń, prywatność, basen i własny dom nad morzem",
+    "tag.apartments": "Apartamenty",
+    "tag.exhibition": "Wybór wystawowy",
+    "tag.villa": "Willa",
+    "project.open": "Otwórz prezentację",
+    "project.one.title": "One World — apartamenty od 9 mln RUB",
+    "project.one.1": "800 metrów do Bang Tao, najbardziej pożądanej plaży na wyspie.",
+    "project.one.2": "Studia oraz apartamenty z 1–2 sypialniami.",
+    "project.one.3": "Unikalny rabat 27,7% na pulę lokali na 2. i 3. piętrze do końca lata.",
+    "project.surin.title": "Surin Sands — apartamenty od 11 mln RUB",
+    "project.surin.1": "650 metrów do Surin, jednej z najczystszych plaż wyspy, oraz 800 metrów do Bang Tao, najbardziej pożądanej plaży Phuket.",
+    "project.surin.2": "Studia oraz apartamenty z 1–2 sypialniami.",
+    "project.surin.3": "Niedowartościowany projekt: 25–30% taniej niż konkurencja w podobnej lokalizacji.",
+    "project.andaman.title": "Andaman — apartamenty od 15 mln RUB",
+    "project.andaman.1": "500 metrów do Bang Tao, najbardziej pożądanej plaży na wyspie.",
+    "project.andaman.2": "Apartamenty 1- i 2-pokojowe od 34,5 m².",
+    "project.andaman.3": "Materiały wykończeniowe klasy premium.",
+    "project.accor.title": "Montazure Accor Residences — apartamenty od 25 mln RUB",
+    "project.accor.1": "600 metrów do popularnej plaży Kamala.",
+    "project.accor.2": "Apartamenty zarządzane przez międzynarodową sieć hotelową Accor.",
+    "project.accor.3": "Duże studia i apartamenty z 1 sypialnią od 47 do 72 m².",
+    "project.hythe.title": "Botanica Hythe — apartamenty od 27 mln RUB",
+    "project.hythe.1": "Osobne mini-miasto od Botanica — dużego dewelopera willi i rezydencji premium na Phuket.",
+    "project.hythe.2": "1 km do plaży Bang Tao.",
+    "project.hythe.3": "Apartamenty z 1, 2 i 3 sypialniami oraz prywatnymi basenami od 56 do 219 m².",
+    "project.hythe.4": "Duplexy i penthouse’y od 300 do 700 m².",
+    "project.inter.title": "Intercontinental Residences — apartamenty od 34 mln RUB",
+    "project.inter.1": "400 metrów do popularnej plaży Kamala.",
+    "project.inter.2": "Apartamenty zarządzane przez międzynarodową markę hotelową InterContinental.",
+    "project.inter.3": "Apartamenty z 1, 2 i 3 sypialniami od 67 do 200 m².",
+    "project.redwood.title": "Redwood Villas — wille od 100 mln RUB",
+    "project.redwood.1": "Unikalne wille w samym sercu Bang Tao — z dala od hałasu i nocnego życia.",
+    "project.redwood.2": "Własna infrastruktura: 4-pasmowa droga, ścieżka biegowa wzdłuż jeziora, fontanna, strefy do jogi i spacerów z psami, centrum fitness, restauracja i spa.",
+    "project.redwood.3": "10 minut samochodem do plaż Bang Tao i Surin.",
+    "project.redwood.4": "5 minut do najlepszych restauracji i sklepów w Boat Avenue oraz Porto de Phuket.",
+    "project.montvilla.title": "Montazure Villas — wille od 115 mln RUB",
+    "project.montvilla.1": "Wille od Botanica, największego dewelopera willi na wyspie.",
+    "project.montvilla.2": "600 metrów do plaży Kamala — wyjątkowo blisko jak na wille.",
+    "project.montvilla.3": "15 minut samochodem do Boat Avenue i Porto de Phuket z najlepszymi restauracjami na wyspie.",
+    "project.grand.title": "Grand Avenue Villas — wille od 120 mln RUB",
+    "project.grand.1": "Wille od Botanica, największego dewelopera willi na wyspie.",
+    "project.grand.2": "Osobne mini-miasto z polem golfowym, basenami i spa.",
+    "project.grand.3": "5–7 minut samochodem do plaż Bang Tao i Layan, Boat Avenue oraz najlepszych restauracji na wyspie.",
+    "about.label": "O firmie",
+    "about.title": "Kim jesteśmy?",
+    "about.p1": "Dock Point to butikowa agencja nieruchomości na Phuket. Pomagamy klientom wybierać wille i apartamenty do życia, wypoczynku i inwestycji — nie jako przypadkowy zakup za granicą, lecz jako część przemyślanego systemu życia, kapitału i wolności.",
+    "about.p2": "Dla naszych klientów Phuket to miejsce, w którym można mieć drugi dom nad morzem, spędzać zimy z rodziną, uzyskiwać dochód z wynajmu, chronić część kapitału i żyć w bardziej swobodnym międzynarodowym rytmie.",
+    "about.p3": "Naszym zadaniem nie jest bycie „agencją z bazą obiektów”, ale zaufanym lokalnym partnerem. Wspieramy kupujących na każdym etapie: od wyboru nieruchomości i sprawdzenia dokumentów po transakcję, przygotowanie do wynajmu, zarządzanie i późniejszą odsprzedaż.",
+    "about.p4": "Znamy rynek Phuket od środka, rozumiemy logikę deweloperów, niuanse prawne, potencjał inwestycyjny poszczególnych rejonów i realne oczekiwania klientów. Dlatego nie tylko pokazujemy piękne wille — pomagamy wybrać nieruchomość zgodną z celami klienta.",
+    "about.role": "Założyciel i dyrektor agencji",
+    "about.quote": "Dock Point to punkt oparcia nad morzem.<br/>Pomagamy znaleźć nie tylko metry kwadratowe, ale drugi dom na Phuket: tam, gdzie morze i słońce są przez cały rok — a nieruchomość pracuje jako źródło dochodu walutowego i ochrona kapitału w uznanej międzynarodowej jurysdykcji.",
+    "trust.label": "Zaufanie",
+    "trust.title": "Dlaczego możesz nam zaufać?",
+    "trust.local.title": "Żyjemy i pracujemy na Phuket",
+    "trust.local.text": "Znamy dzielnice, deweloperów i realne ceny od środka — nie sprzedajemy wyspy wyłącznie na podstawie zdjęć z prezentacji.",
+    "trust.moscow.title": "Przedstawicielstwo w Moskwie i Petersburgu",
+    "trust.moscow.text": "Gwarantujemy wsparcie na żywo: można się z nami spotkać, omówić szczegóły i spokojnie przeanalizować dokumenty.",
+    "trust.strategy.title": "Dobieramy nieruchomość pod cel",
+    "trust.strategy.text": "Życie, wynajem i odsprzedaż to różne strategie. Nie jesteśmy przywiązani do jednego dewelopera i możemy proponować różne opcje.",
+    "trust.legal.title": "Silne wsparcie prawne",
+    "trust.legal.text": "Współpracujemy jednocześnie z 2 kancelariami prawnymi — tajską i międzynarodową. Przeprowadzamy obowiązkowe kontrole prawne projektów: certyfikaty, pozwolenia, własność gruntu, reputację dewelopera i stan nieruchomości.",
+    "trust.experience.title": "Duże doświadczenie międzynarodowe",
+    "trust.experience.text": "Łącznie ponad 20 lat doświadczenia w USA i Tajlandii: rozumiemy oczekiwania klientów rosyjskojęzycznych oraz międzynarodowe standardy obsługi.",
+    "trust.commission.title": "Bez prowizji dla kupującego",
+    "trust.commission.text": "W większości transakcji naszą prowizję płaci deweloper lub sprzedający — wybór nieruchomości jest dla kupującego bezpłatny.",
+    "faq.label": "FAQ",
+    "faq.title": "Najczęściej zadawane pytania",
+    "faq.q1": "Czy cudzoziemiec może kupić nieruchomość na Phuket?",
+    "faq.a1": "Tak. Cudzoziemcy mogą kupować apartamenty w Tajlandii w formule freehold — pełnej własności nieruchomości. Zgodnie z prawem do 49% powierzchni każdego budynku kondominium może być zarejestrowane jako foreign freehold. Pozostałe lokale zwykle kupuje się w formule leasehold — długoterminowej dzierżawy na 30 lat z możliwością dwóch przedłużeń: 30 + 30 + 30 = do 90 lat posiadania. W przypadku willi schemat jest inny: sama willa jest zwykle własnością freehold, a grunt pod nią — leasehold.",
+    "faq.q2": "Jak przelać pieniądze z Rosji lub krajów WNP?",
+    "faq.a2": "Istnieje kilka działających sposobów: przelewy SWIFT przez banki w Rosji, Kazachstanie i innych krajach WNP, a także płatności kryptowalutą, które akceptuje wielu tajskich deweloperów. Mamy sprawdzonych partnerów, którzy pomagają zorganizować bezpieczny przelew i prawidłowe zaksięgowanie płatności za nieruchomość.",
+    "faq.q3": "Jak sprawdzacie deweloperów?",
+    "faq.a3": "Przeprowadzamy due diligence — prawną i faktyczną weryfikację projektu. Sprawdzamy dokumenty gruntu, w tym chanote, prawo dewelopera do dysponowania działką, pozwolenia, EIA gdy jest wymagane, reputację dewelopera, etap budowy i realne tempo prac na miejscu. Żyjemy na Phuket i możemy osobiście kontrolować place budowy.",
+    "faq.q4": "Jak odebrać apartament lub willę po zakupie?",
+    "faq.a4": "Możesz przyjechać na Phuket i odebrać nieruchomość osobiście albo wystawić pełnomocnictwo, a my odbierzemy apartament lub willę w Twoim imieniu. Większość nieruchomości na Phuket jest przekazywana z wykończeniem, meblami i sprzętem — gotowa do zamieszkania.",
+    "faq.q5": "Jak wynająć apartament lub willę?",
+    "faq.a5": "Możesz wynajmować nieruchomość samodzielnie albo przekazać ją nam w zarządzanie. Dock Point pomaga przygotować obiekt do wynajmu, zrobić zdjęcia i opis, umieścić ofertę na platformach, znaleźć najemców, obsługiwać zameldowania i wymeldowania, kontrolować płatności oraz stan nieruchomości.",
+    "faq.q6": "Jak otrzymywać dochód z wynajmu, przebywając za granicą?",
+    "faq.a6": "Jeśli nieruchomość jest wynajmowana przez nas, zorganizujemy wygodny sposób otrzymywania dochodu: przelew na konto bankowe w USA, Wielkiej Brytanii lub innym kraju. Nie musisz stale przebywać na Phuket, aby nieruchomość pracowała.",
+    "faq.q7": "Jakiego dochodu z wynajmu można oczekiwać?",
+    "faq.a7": "Rentowność zależy od rejonu, typu nieruchomości, sezonu, jakości zarządzania i ceny zakupu. W naszej praktyce orientacyjne poziomy to: wille — 7–8% rocznie w walucie, apartamenty — 9–10% rocznie w walucie.",
+    "faq.q8": "Jak później sprzedać apartament lub willę?",
+    "faq.a8": "Możemy pomóc w odsprzedaży: wycenić nieruchomość, przygotować materiały marketingowe, opublikować ofertę, znaleźć kupującego, prowadzić negocjacje i wesprzeć transakcję. Phuket ma aktywny rynek wtórny, szczególnie w płynnych lokalizacjach.",
+    "faq.q9": "A jeśli król odbierze nieruchomość?",
+    "faq.a9": "Nie są nam znane przypadki we współczesnej historii Tajlandii, w których nieruchomość została odebrana zagranicznym nabywcom. Zwłaszcza od czasu przyjęcia Foreign Condominium Act w 1979 roku, który stworzył jasne ramy prawne dla posiadania apartamentów przez cudzoziemców. Zakup nieruchomości w Tajlandii to normalna międzynarodowa praktyka inwestorów z całego świata.",
+    "faq.q10": "Ile kosztuje obsługa transakcji?",
+    "faq.a10": "Dla kupującego wybór nieruchomości i obsługa transakcji są zwykle bezpłatne: prowizję agencji płaci deweloper lub sprzedający. Niestandardowe zadania prawne, podatkowe lub związane z zarządzaniem są omawiane osobno.",
+    "contact.label": "Kontakty",
+    "contact.title": "Otrzymaj wybór nieruchomości",
+    "contact.russia": "Rosja",
+    "contact.thailand": "Tajlandia",
+    "contact.telegram": "Telegram / WhatsApp",
+    "modal.title": "Projekt",
+    "modal.open": "Otwórz PDF w nowym oknie",
+    "modal.note": "Materiały projektu",
+    "modal.placeholder.title": "Nazwa projektu",
+    "modal.placeholder.text": "Prezentacja PDF dla tego projektu nie jest jeszcze podłączona.<br/><br/>Możemy wysłać aktualne materiały na życzenie.",
+    "footer.sub": "Nieruchomości na Phuket",
+    "nav.logo.sub": "Butikowa agencja nieruchomości",
+    "phuket.climate.title2": "Komfortowy klimat",
+    "phuket.climate.text2": "Około 250 słonecznych dni w roku w porównaniu z 50 w Londynie i 60 w Berlinie. Temperatura utrzymuje się na poziomie 27–30°C, z morską bryzą i możliwością kąpieli przez cały rok. Słońce i ciepło tutaj to nie dwutygodniowe wakacje — to codzienne środowisko.",
+    "phuket.invest.title": "Atrakcyjność inwestycyjna",
+    "phuket.invest.text": "Wysoki popyt na wynajem, ograniczona podaż w najlepszych lokalizacjach oraz rosnące ceny gruntów i nieruchomości. Nieruchomość na Phuket może być nie tylko drugim domem, ale także aktywem walutowym.",
+    "about.founder.name": "Nikita Tomilin",
+    "phuket.visa.text2": "Roczna wiza jest dostępna przy zakupie nieruchomości od 7,5 mln RUB. 10-letnia wiza dla całej rodziny jest dostępna przy zakupie willi od 45 mln RUB. Phuket staje się wygodnym drugim domem z legalnym długoterminowym statusem.",
+    "phuket.invest.text2": "Średnia rentowność wynosi około 8% dla willi i do 10% dla apartamentów. Dochód jest otrzymywany w tajskich bahtach — silnej walucie, która umocniła się wobec dolara w ciągu ostatnich 25 lat. To aktywo w międzynarodowej jurysdykcji z możliwością transferu środków do różnych krajów.",
+    "faq.a8_alt": "Nie znikamy po transakcji. Dock Point zajmuje się nie tylko sprzedażą pierwotną od deweloperów, ale także nieruchomościami z rynku wtórnego. Jeśli za kilka lat będziesz chciał zrealizować zysk, odzyskać środki lub przenieść kapitał do innego obiektu — pomożemy w odsprzedaży.",
+    "faq.q9_alt": "Co się stanie, jeśli będzie tsunami?",
+    "faq.a9_alt": "Duże tsunami w Tajlandii zdarzają się niezwykle rzadko. Bierzemy ten czynnik pod uwagę przy wyborze nieruchomości i wybieramy projekty nie na pierwszej linii brzegowej, lecz w spokojniejszych i bezpieczniejszych lokalizacjach, często na wzniesieniu.",
+    "faq.q10_alt": "A jeśli państwo lub król odbierze nieruchomość?",
+    "faq.a10_alt": "Cudzoziemcy legalnie kupują nieruchomości w Tajlandii od ponad 50 lat. Prawo cudzoziemców do posiadania apartamentów w kondominiach jest określone w Condominium Act B.E. 2522, przyjętym w 1979 roku. Nie są nam znane przypadki we współczesnej historii Tajlandii, w których legalnie zarejestrowany apartament lub willa zostały po prostu „odebrane” zagranicznemu nabywcy.",
+    "contact.label2": "Kontakty",
+    "contact.title2": "Skontaktuj się z nami",
+    "contact.russia2": "Telefon — Rosja",
+    "contact.thailand2": "Telefon — Tajlandia",
+    "contact.email2": "Email",
+    "footer.copy": "© 2025 Dock Point. Wszelkie prawa zastrzeżone."
+  };
+
   const i18nRu = {};
 
   document.addEventListener('DOMContentLoaded', function() {
@@ -2272,11 +2425,11 @@
       i18nRu[el.dataset.i18n] = el.innerHTML;
     });
     const savedLang = localStorage.getItem('dockPointLang') || 'ru';
-    setLanguage(savedLang);
+    setLanguage(['ru', 'en', 'pl'].includes(savedLang) ? savedLang : 'ru');
   });
 
   function setLanguage(lang) {
-    const dict = lang === 'en' ? i18nEn : i18nRu;
+    const dict = lang === 'en' ? i18nEn : (lang === 'pl' ? i18nPl : i18nRu);
     document.querySelectorAll('[data-i18n]').forEach(function(el) {
       const key = el.dataset.i18n;
       if (dict[key] !== undefined) {
@@ -2287,7 +2440,12 @@
     document.documentElement.lang = lang;
     document.documentElement.setAttribute('data-lang', lang);
     if (document.body) document.body.classList.toggle('lang-en', lang === 'en');
+    document.body.classList.toggle('lang-pl', lang === 'pl');
     localStorage.setItem('dockPointLang', lang);
+
+    document.title = lang === 'en'
+      ? 'Dock Point — Real Estate in Phuket'
+      : (lang === 'pl' ? 'Dock Point — Nieruchomości na Phuket' : 'Dock Point — Недвижимость на Пхукете');
 
     document.querySelectorAll('[data-lang-btn]').forEach(function(btn) {
       btn.classList.toggle('active', btn.dataset.langBtn === lang);
@@ -2296,41 +2454,41 @@
     // Hard overrides for elements that must switch cleanly in EN/RU
     const navContact = document.querySelector('.nav-contact-btn');
     if (navContact) {
-      navContact.innerHTML = lang === 'en' ? 'Contact' : 'Связаться';
+      navContact.innerHTML = lang === 'en' ? 'Contact' : (lang === 'pl' ? 'Kontakt' : 'Связаться');
     }
 
     document.querySelectorAll('[data-i18n="about.founder.name"]').forEach(function(el) {
-      el.innerHTML = lang === 'en' ? 'Nikita Tomilin' : 'Никита Томилин';
+      el.innerHTML = lang === 'ru' ? 'Никита Томилин' : 'Nikita Tomilin';
     });
 
     const founderCaption = document.querySelector('.founder-caption');
     if (founderCaption) {
-      founderCaption.style.display = lang === 'en' ? 'none' : 'block';
+      founderCaption.style.display = lang === 'ru' ? 'block' : 'none';
     }
 
     const ruCisTransferFaq = document.querySelector('.faq-ru-cis-transfer');
     if (ruCisTransferFaq) {
-      ruCisTransferFaq.style.display = lang === 'en' ? 'none' : '';
+      ruCisTransferFaq.style.display = lang === 'ru' ? '' : 'none';
     }
 
     const russiaContactCard = document.querySelector('.contact-russia-card');
     if (russiaContactCard) {
-      russiaContactCard.style.display = lang === 'en' ? 'none' : '';
+      russiaContactCard.style.display = lang === 'ru' ? '' : 'none';
     }
 
     const telegramButton = document.querySelector('.floating-telegram');
     if (telegramButton) {
-      telegramButton.style.display = lang === 'en' ? 'none' : 'flex';
+      telegramButton.style.display = lang === 'ru' ? 'flex' : 'none';
     }
 
     // Hide project PDF buttons in English version because presentations are currently in Russian
     syncProjectPresentationButtons(lang);
 
-    document.querySelectorAll('.contact-card').forEach(function(card) {
+    document.querySelectorAll('.contact-item').forEach(function(card) {
       const text = card.innerText || '';
-      const isRussiaPhone = text.includes('+7') || text.includes('Phone — Russia') || text.includes('Телефон — Россия');
+      const isRussiaPhone = text.includes('+7') || text.includes('Phone — Russia') || text.includes('Телефон — Россия') || text.includes('Telefon — Rosja');
       if (isRussiaPhone) {
-        card.style.display = lang === 'en' ? 'none' : '';
+        card.style.display = lang === 'ru' ? '' : 'none';
       }
     });
 
@@ -2339,14 +2497,15 @@
 
 
   function syncProjectPresentationButtons(lang) {
-    const isEnglish = lang === 'en';
+    const hideLocalizedPdfs = lang !== 'ru';
     document.documentElement.setAttribute('data-lang', lang);
-    document.body.classList.toggle('lang-en', isEnglish);
+    document.body.classList.toggle('lang-en', lang === 'en');
+    document.body.classList.toggle('lang-pl', lang === 'pl');
 
     document.querySelectorAll('#projects a[onclick^="openPDF"]').forEach(function(btn) {
       btn.setAttribute('data-ru-only-pdf', 'true');
 
-      if (isEnglish) {
+      if (hideLocalizedPdfs) {
         btn.hidden = true;
         btn.setAttribute('aria-hidden', 'true');
         btn.style.setProperty('display', 'none', 'important');
@@ -2369,10 +2528,10 @@
     const lang = localStorage.getItem('dockPointLang') || document.documentElement.lang || 'ru';
     const isMobile = window.matchMedia('(max-width: 768px)').matches;
 
-    const desktopSrc = lang === 'en' ? heroImage.dataset.srcEn : heroImage.dataset.srcRu;
-    const mobileSrc = lang === 'en' ? heroImage.dataset.mobileSrcEn : heroImage.dataset.mobileSrcRu;
+    const desktopSrc = lang === 'ru' ? heroImage.dataset.srcRu : heroImage.dataset.srcEn;
+    const mobileSrc = lang === 'ru' ? heroImage.dataset.mobileSrcRu : heroImage.dataset.mobileSrcEn;
     const nextSrc = isMobile && mobileSrc ? mobileSrc : desktopSrc;
-    const nextAlt = lang === 'en' ? heroImage.dataset.altEn : heroImage.dataset.altRu;
+    const nextAlt = lang === 'en' ? heroImage.dataset.altEn : (lang === 'pl' ? heroImage.dataset.altPl : heroImage.dataset.altRu);
 
     if (nextSrc && !heroImage.src.endsWith(nextSrc)) heroImage.src = nextSrc;
     if (nextAlt) heroImage.alt = nextAlt;
@@ -2399,7 +2558,11 @@
     if (event) event.preventDefault();
     document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
     setTimeout(function() {
-      window.open('https://wa.me/66808423351?text=' + encodeURIComponent('Здравствуйте! Хочу получить подборку объектов на Пхукете.'), '_blank');
+      const lang = localStorage.getItem('dockPointLang') || document.documentElement.lang || 'ru';
+      const message = lang === 'en'
+        ? 'Hello! I would like to get a selection of properties in Phuket.'
+        : (lang === 'pl' ? 'Dzień dobry! Chcę otrzymać wybór nieruchomości na Phuket.' : 'Здравствуйте! Хочу получить подборку объектов на Пхукете.');
+      window.open('https://wa.me/66808423351?text=' + encodeURIComponent(message), '_blank');
     }, 450);
   }
 
