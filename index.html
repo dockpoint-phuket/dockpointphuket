@@ -2640,6 +2640,8 @@
     const whatsappUrl = 'https://wa.me/66808423351?text=' + encodeURIComponent(message);
     document.querySelectorAll('[data-whatsapp-cta], .project-btn[href^="https://wa.me/"], .floating-whatsapp').forEach(function(link) {
       link.href = whatsappUrl;
+      link.dataset.whatsappMessage = message;
+      link.dataset.whatsappLang = lang;
     });
   }
 
@@ -2673,8 +2675,23 @@
   };
 
 
+  function getCurrentLanguage() {
+    const activeButton = document.querySelector('[data-lang-btn].active');
+    if (activeButton && ['ru', 'en', 'pl'].includes(activeButton.dataset.langBtn)) {
+      return activeButton.dataset.langBtn;
+    }
+
+    const htmlLang = document.documentElement.getAttribute('data-lang') || document.documentElement.lang;
+    if (['ru', 'en', 'pl'].includes(htmlLang)) return htmlLang;
+
+    const savedLang = localStorage.getItem('dockPointLang');
+    if (['ru', 'en', 'pl'].includes(savedLang)) return savedLang;
+
+    return 'ru';
+  }
+
   function getWhatsAppMessage(forcedLang) {
-    const lang = forcedLang || document.documentElement.getAttribute('data-lang') || document.documentElement.lang || localStorage.getItem('dockPointLang') || 'ru';
+    const lang = ['ru', 'en', 'pl'].includes(forcedLang) ? forcedLang : getCurrentLanguage();
     if (lang === 'en') return 'Hello! I would like to receive a presentation and current availability for Phuket properties.';
     if (lang === 'pl') return 'Dzień dobry! Chciałbym otrzymać prezentację oraz aktualną dostępność nieruchomości na Phuket.';
     return 'Здравствуйте! Хочу получить презентацию и актуальную шахматку по объектам на Пхукете.';
@@ -2682,12 +2699,16 @@
 
   function openProjectWhatsApp(event) {
     if (event) event.preventDefault();
-    window.open('https://wa.me/66808423351?text=' + encodeURIComponent(getWhatsAppMessage()), '_blank');
+    const link = event && event.currentTarget ? event.currentTarget : null;
+    const message = link && link.dataset.whatsappMessage ? link.dataset.whatsappMessage : getWhatsAppMessage();
+    window.open('https://wa.me/66808423351?text=' + encodeURIComponent(message), '_blank');
   }
 
   function openWhatsApp(event) {
     if (event) event.preventDefault();
-    window.open('https://wa.me/66808423351?text=' + encodeURIComponent(getWhatsAppMessage()), '_blank');
+    const link = event && event.currentTarget ? event.currentTarget : null;
+    const message = link && link.dataset.whatsappMessage ? link.dataset.whatsappMessage : getWhatsAppMessage();
+    window.open('https://wa.me/66808423351?text=' + encodeURIComponent(message), '_blank');
   }
 
   function openPDF(name) {
