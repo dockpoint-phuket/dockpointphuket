@@ -1693,25 +1693,25 @@
 <body>
 <!-- NAV -->
 <nav>
-<div class="lang-switch" aria-label="Language switch">
+<div aria-label="Language switch" class="lang-switch">
 <button class="lang-btn active" data-lang-btn="ru" onclick="setLanguage('ru')" title="Русская версия">🇷🇺</button>
 <button class="lang-btn" data-lang-btn="en" onclick="setLanguage('en')" title="English version">🇬🇧</button>
 <button class="lang-btn" data-lang-btn="pl" onclick="setLanguage('pl')" title="Polska wersja">🇵🇱</button>
 </div>
-<a class="nav-logo nav-logo-text" href="#" aria-label="Dock Point">
-  <div class="nav-logo-word">Dock Point</div>
-  <div class="nav-logo-sub" data-i18n="nav.logo.sub">Недвижимость на Пхукете</div>
+<a aria-label="Dock Point" class="nav-logo nav-logo-text" href="#">
+<div class="nav-logo-word">Dock Point</div>
+<div class="nav-logo-sub" data-i18n="nav.logo.sub">Недвижимость на Пхукете</div>
 </a>
 <ul class="nav-links">
-<li><a href="#phuket" data-i18n="nav.phuket">Почему Пхукет?</a></li>
-<li><a href="#projects" data-i18n="nav.projects">Наши проекты</a></li>
-<li><a href="#whoweare" data-i18n="nav.about">Кто мы?</a></li>
+<li><a data-i18n="nav.phuket" href="#phuket">Почему Пхукет?</a></li>
+<li><a data-i18n="nav.projects" href="#projects">Наши проекты</a></li>
+<li><a data-i18n="nav.about" href="#whoweare">Кто мы?</a></li>
 <li><a class="nav-contact-btn" href="#contact">Связаться</a></li>
 </ul>
 </nav>
 <!-- HERO -->
 <section class="hero" id="hero">
-<img id="hero-main-image" alt="Dock Point — Недвижимость на Пхукете" src="assets/images/image-01.jpg" data-src-ru="assets/images/image-01.jpg" data-src-en="assets/images/image-02.png" data-mobile-src-ru="assets/images/mobile-hero-logo.png" data-mobile-src-en="assets/images/mobile-hero-logo.png" data-alt-ru="Dock Point — Недвижимость на Пхукете" data-alt-en="Dock Point — Real Estate in Phuket" data-alt-pl="Dock Point — Nieruchomości na Phuket" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;"/>
+<img alt="Dock Point — Недвижимость на Пхукете" data-alt-en="Dock Point — Real Estate in Phuket" data-alt-pl="Dock Point — Nieruchomości na Phuket" data-alt-ru="Dock Point — Недвижимость на Пхукете" data-mobile-src-en="assets/images/mobile-hero-logo.png" data-mobile-src-ru="assets/images/mobile-hero-logo.png" data-src-en="assets/images/image-02.png" data-src-ru="assets/images/image-01.jpg" id="hero-main-image" src="assets/images/image-01.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;"/>
 </section>
 <!-- PROJECTS -->
 <section id="phuket">
@@ -1800,38 +1800,16 @@
 </div>
 <img alt="Инвестиционные объекты на Пхукете" class="block-header-preview" loading="lazy" src="https://cdn.kellerhenson.com/project/Floor-Plan-One-World-One-Exterior-Rooftop-4.jpg?format=webp&amp;quality=72&amp;width=400"/>
 </div>
-<div class="project-category-cards">
-<div class="project-card-new">
+<div class="project-category-cards"><div class="project-card-new">
 <div class="project-tag" data-i18n="tag.apartments">Апартаменты</div>
-<h3 data-i18n="project.one.title">One World — апартаменты от 7,5 млн ₽</h3>
+<h3 data-i18n="project.one.title">One World — первый взнос от 2,5 млн ₽</h3>
 <ul>
 <li data-i18n="project.one.1">800 метров до самого востребованного пляжа острова — Бангтао.</li>
 <li data-i18n="project.one.2">студии и апартаменты с 1–2 спальнями.</li>
 <li data-i18n="project.one.3">уникальная скидка 27,7% на пул квартир на 2 и 3 этаже до конца лета</li>
 </ul>
 <a class="project-btn" data-ru-only-pdf="true" onclick="openPDF('One World')"><span data-i18n="project.open">Открыть презентацию</span></a>
-</div>
-<div class="project-card-new">
-<div class="project-tag" data-i18n="tag.apartments">Апартаменты</div>
-<h3 data-i18n="project.surin.title">Surin Sands — апартаменты от 9,5 млн ₽</h3>
-<ul>
-<li data-i18n="project.surin.1">650 метров до самого чистого пляжа острова — Сурин, и 800 метров до самого востребованного пляжа Пхукета — Бангтао.</li>
-<li data-i18n="project.surin.2">студии и апартаменты с 1–2 спальнями.</li>
-<li data-i18n="project.surin.3">недооценённый проект: на 25–30% дешевле конкурентов в аналогичной локации</li>
-</ul>
-<a class="project-btn" data-ru-only-pdf="true" onclick="openPDF('Surin Sands')"><span data-i18n="project.open">Открыть презентацию</span></a>
-</div>
-<div class="project-card-new">
-<div class="project-tag" data-i18n="tag.apartments">Апартаменты</div>
-<h3 data-i18n="project.andaman.title">Andaman — апартаменты от 11 млн ₽</h3>
-<ul>
-<li data-i18n="project.andaman.1">500 метров до самого востребованного пляжа острова — Бангтао.</li>
-<li data-i18n="project.andaman.2">1- и 2-комнатные квартиры от 34,5 кв.м.</li>
-<li data-i18n="project.andaman.3">премиальные материалы отделки</li>
-</ul>
-<a class="project-btn" data-ru-only-pdf="true" onclick="openPDF('Andaman')"><span data-i18n="project.open">Открыть презентацию</span></a>
-</div>
-<div class="project-card-new">
+</div><div class="project-card-new">
 <div class="project-tag" data-i18n="tag.apartments">Апартаменты</div>
 <h3 data-i18n="project.wallaya.title">Wallaya Naiharn Residences — первый взнос от 4 млн ₽</h3>
 <ul>
@@ -1839,8 +1817,7 @@
 <li data-i18n="project.wallaya.2">5 минут на авто до пляжа Раваи — одного из самых аутентичных районов Пхукета, с красивым видом на традиционные рыбацкие лодки long-tail.</li>
 <li data-i18n="project.wallaya.3">Вход в сделку от 30% первого взноса; остальная сумма оплачивается после 2 лет строительства. Полная цена от 11 млн ₽.</li>
 </ul>
-</div>
-<div class="project-card-new">
+</div><div class="project-card-new">
 <div class="project-tag" data-i18n="tag.apartments">Апартаменты</div>
 <h3 data-i18n="project.peylaa.title">Peylaa — первый взнос от 5 млн ₽</h3>
 <ul>
@@ -1848,8 +1825,16 @@
 <li data-i18n="project.peylaa.2">Просторные апартаменты с инфраструктурой гостиничного уровня и потенциалом профессионального управления.</li>
 <li data-i18n="project.peylaa.3">Вход в сделку от 25% первого взноса; полная цена от 19 млн ₽.</li>
 </ul>
-</div>
-</div>
+</div><div class="project-card-new">
+<div class="project-tag" data-i18n="tag.apartments">Апартаменты</div>
+<h3 data-i18n="project.surin.title">Surin Sands — первый взнос от 5 млн ₽</h3>
+<ul>
+<li data-i18n="project.surin.1">650 метров до самого чистого пляжа острова — Сурин, и 800 метров до самого востребованного пляжа Пхукета — Бангтао.</li>
+<li data-i18n="project.surin.2">студии и апартаменты с 1–2 спальнями.</li>
+<li data-i18n="project.surin.3">недооценённый проект: на 25–30% дешевле конкурентов в аналогичной локации</li>
+</ul>
+<a class="project-btn" data-ru-only-pdf="true" onclick="openPDF('Surin Sands')"><span data-i18n="project.open">Открыть презентацию</span></a>
+</div></div>
 </div>
 <div class="project-block">
 <div class="block-header">
@@ -1944,15 +1929,15 @@
 <div class="pdf-modal-inner">
 <div class="pdf-modal-header">
 <div>
-<div class="pdf-modal-title" id="pdfModalTitle" data-i18n="modal.title">Проект</div>
-<div class="pdf-modal-note"><a class="pdf-open-link" href="#" id="pdfOpenLink" rel="noopener" style="display:none;" target="_blank" data-i18n="modal.open">Открыть PDF в новом окне</a><span id="pdfModalNote" data-i18n="modal.note">Материалы проекта</span></div>
+<div class="pdf-modal-title" data-i18n="modal.title" id="pdfModalTitle">Проект</div>
+<div class="pdf-modal-note"><a class="pdf-open-link" data-i18n="modal.open" href="#" id="pdfOpenLink" rel="noopener" style="display:none;" target="_blank">Открыть PDF в новом окне</a><span data-i18n="modal.note" id="pdfModalNote">Материалы проекта</span></div>
 </div>
 <button class="pdf-close" onclick="closePDF()">✕</button>
 </div>
 <iframe class="pdf-frame" id="pdfFrame" title="Презентация проекта"></iframe>
 <div class="pdf-placeholder" id="pdfPlaceholder">
 <svg class="pdf-placeholder-icon" viewbox="0 0 24 24"><path d="M20 2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8.5 7.5c0 .83-.67 1.5-1.5 1.5H9v2H7.5V7H10c.83 0 1.5.67 1.5 1.5v1zm5 2c0 .83-.67 1.5-1.5 1.5h-2.5V7H15c.83 0 1.5.67 1.5 1.5v3zm4-3H19v1h1.5V11H19v2h-1.5V7h3v1.5zM9 9.5h1v-1H9v1zM4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm10 5.5h1v-3h-1v3z"></path></svg>
-<h3 id="pdfPlaceholderTitle" data-i18n="modal.placeholder.title">Название проекта</h3>
+<h3 data-i18n="modal.placeholder.title" id="pdfPlaceholderTitle">Название проекта</h3>
 <p data-i18n="modal.placeholder.text">PDF-презентация для этого проекта пока не подключена.<br/><br/>Мы можем отправить актуальные материалы по запросу.</p>
 </div>
 </div>
@@ -2128,10 +2113,9 @@
 <p data-i18n="footer.copy">© 2025 Dock Point. Все права защищены.</p>
 </footer>
 <div class="floating-socials">
-<a aria-label="Написать в Telegram" class="floating-social-btn floating-telegram" href="tg://resolve?phone=79162336813"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.78 15.38l-.4 5.62c.57 0 .82-.24 1.12-.53l2.7-2.58 5.6 4.1c1.03.57 1.76.27 2.04-.95l3.7-17.36h0c.33-1.52-.55-2.12-1.56-1.74L1.3 10.27c-1.48.58-1.46 1.41-.25 1.79l5.55 1.73L19.5 5.66c.61-.4 1.16-.18.7.22"/></svg></a>
-<a aria-label="Написать в WhatsApp" class="floating-social-btn floating-whatsapp" href="https://wa.me/66808423351" onclick="openWhatsApp(event)" target="_blank"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.52 3.48A11.78 11.78 0 0 0 12.05 0C5.55 0 .27 5.28.27 11.78c0 2.08.54 4.11 1.58 5.91L0 24l6.49-1.7a11.73 11.73 0 0 0 5.56 1.42h.01c6.5 0 11.78-5.28 11.78-11.78 0-3.15-1.23-6.1-3.32-8.46zM12.06 21.7a9.86 9.86 0 0 1-5.03-1.38l-.36-.21-3.85 1 1.03-3.75-.24-.38a9.8 9.8 0 0 1-1.5-5.2c0-5.43 4.42-9.85 9.86-9.85 2.63 0 5.1 1.02 6.96 2.89a9.77 9.77 0 0 1 2.88 6.95c0 5.43-4.42 9.85-9.85 9.85zm5.4-7.37c-.3-.15-1.77-.87-2.05-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.48-1.77-1.65-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.21-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.05 1.03-1.05 2.52 0 1.5 1.07 2.94 1.22 3.14.15.2 2.1 3.21 5.08 4.49.71.31 1.27.49 1.7.63.72.23 1.38.2 1.9.12.58-.09 1.77-.72 2.02-1.42.25-.69.25-1.29.17-1.42-.07-.13-.27-.2-.57-.35z"/></svg></a>
+<a aria-label="Написать в Telegram" class="floating-social-btn floating-telegram" href="tg://resolve?phone=79162336813"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M9.78 15.38l-.4 5.62c.57 0 .82-.24 1.12-.53l2.7-2.58 5.6 4.1c1.03.57 1.76.27 2.04-.95l3.7-17.36h0c.33-1.52-.55-2.12-1.56-1.74L1.3 10.27c-1.48.58-1.46 1.41-.25 1.79l5.55 1.73L19.5 5.66c.61-.4 1.16-.18.7.22"></path></svg></a>
+<a aria-label="Написать в WhatsApp" class="floating-social-btn floating-whatsapp" href="https://wa.me/66808423351" onclick="openWhatsApp(event)" target="_blank"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M20.52 3.48A11.78 11.78 0 0 0 12.05 0C5.55 0 .27 5.28.27 11.78c0 2.08.54 4.11 1.58 5.91L0 24l6.49-1.7a11.73 11.73 0 0 0 5.56 1.42h.01c6.5 0 11.78-5.28 11.78-11.78 0-3.15-1.23-6.1-3.32-8.46zM12.06 21.7a9.86 9.86 0 0 1-5.03-1.38l-.36-.21-3.85 1 1.03-3.75-.24-.38a9.8 9.8 0 0 1-1.5-5.2c0-5.43 4.42-9.85 9.86-9.85 2.63 0 5.1 1.02 6.96 2.89a9.77 9.77 0 0 1 2.88 6.95c0 5.43-4.42 9.85-9.85 9.85zm5.4-7.37c-.3-.15-1.77-.87-2.05-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.48-1.77-1.65-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.21-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.05 1.03-1.05 2.52 0 1.5 1.07 2.94 1.22 3.14.15.2 2.1 3.21 5.08 4.49.71.31 1.27.49 1.7.63.72.23 1.38.2 1.9.12.58-.09 1.77-.72 2.02-1.42.25-.69.25-1.29.17-1.42-.07-.13-.27-.2-.57-.35z"></path></svg></a>
 </div>
-
 <script>
   const i18nEn = {
     "nav.phuket": "Why Phuket?",
@@ -2167,18 +2151,14 @@
     "tag.exhibition": "Exhibition pick",
     "tag.villa": "Villa",
     "project.open": "Open presentation",
-    "project.one.title": "One World — apartments from $90,000",
+    "project.one.title": "One World — first payment from $30,000",
     "project.one.1": "800 meters to Bang Tao, the island’s most in-demand beach.",
     "project.one.2": "Studios and 1–2 bedroom apartments.",
     "project.one.3": "A unique 27.7% discount on a pool of units on the 2nd and 3rd floors until the end of summer.",
-    "project.surin.title": "Surin Sands — apartments from $110,000",
+    "project.surin.title": "Surin Sands — first payment from $55,000",
     "project.surin.1": "650 meters to Surin, one of the island’s cleanest beaches, and 800 meters to Bang Tao, Phuket’s most in-demand beach.",
     "project.surin.2": "Studios and 1–2 bedroom apartments.",
     "project.surin.3": "Undervalued project: 25–30% cheaper than competitors in a similar location.",
-    "project.andaman.title": "Andaman — apartments from $130,000",
-    "project.andaman.1": "500 meters to Bang Tao, the island’s most in-demand beach.",
-    "project.andaman.2": "1- and 2-bedroom apartments from 34.5 sq.m.",
-    "project.andaman.3": "Premium finishing materials.",
     "project.wallaya.title": "Wallaya Naiharn Residences — first payment from $45,000",
     "project.wallaya.1": "5 minutes by car to Nai Harn Beach, ranked among the world’s most beautiful beaches.",
     "project.wallaya.2": "5 minutes by car to Rawai Beach — one of Phuket’s most authentic seaside areas, with a stunning view of traditional long-tail fishing boats.",
@@ -2330,19 +2310,15 @@
     "tag.exhibition": "Wybór wystawowy",
     "tag.villa": "Willa",
     "project.open": "Otwórz prezentację",
-    "project.one.title": "One World — apartamenty od 300 tys. PLN",
+    "project.one.title": "One World — pierwsza wpłata od 100 tys. PLN",
     "project.one.1": "800 metrów do Bang Tao, najbardziej pożądanej plaży na wyspie.",
     "project.one.2": "Studia oraz apartamenty z 1–2 sypialniami.",
     "project.one.3": "Unikalny rabat 27,7% na pulę lokali na 2. i 3. piętrze do końca lata.",
-    "project.surin.title": "Surin Sands — apartamenty od 400 tys. PLN",
+    "project.surin.title": "Surin Sands — pierwsza wpłata od 200 tys. PLN",
     "project.surin.1": "650 metrów do Surin, jednej z najczystszych plaż wyspy, oraz 800 metrów do Bang Tao, najbardziej pożądanej plaży Phuket.",
     "project.surin.2": "Studia oraz apartamenty z 1–2 sypialniami.",
     "project.surin.3": "Niedowartościowany projekt: 25–30% taniej niż konkurencja w podobnej lokalizacji.",
-    "project.andaman.title": "Andaman — apartamenty od 500 tys. PLN",
-    "project.andaman.1": "500 metrów do Bang Tao, najbardziej pożądanej plaży na wyspie.",
-    "project.andaman.2": "Apartamenty 1- i 2-pokojowe od 34,5 m².",
-    "project.andaman.3": "Materiały wykończeniowe klasy premium.",
-    "project.wallaya.title": "Wallaya Naiharn Residences — pierwsza wpłata od 165 tys. PLN",
+    "project.wallaya.title": "Wallaya Naiharn Residences — pierwsza wpłata od 150 tys. PLN",
     "project.wallaya.1": "5 minut samochodem do plaży Nai Harn, uznawanej za jedną z najpiękniejszych plaż na świecie.",
     "project.wallaya.2": "5 minut samochodem do plaży Rawai — jednej z najbardziej autentycznych nadmorskich części Phuket, z pięknym widokiem na tradycyjne łodzie rybackie long-tail.",
     "project.wallaya.3": "Wejście w zakup już od 30% pierwszej wpłaty; pozostała kwota płatna po 2 latach budowy. Całkowita cena od 500 tys. PLN.",
@@ -2573,12 +2549,10 @@
 
   window.addEventListener('resize', updateHeroImage);
 </script>
-
 <script>
   const projectPdfs = {
     'One World': 'assets/pdfs/DP-One-World.pdf',
     'Surin Sands': 'assets/pdfs/DP-Surin-Sands.pdf',
-    'Andaman': 'assets/pdfs/DP-Andam.pdf',
     'Montazure Accor Residences': 'assets/pdfs/DP-M-Gallery.pdf',
     'Botanica Hythe': 'assets/pdfs/DP-Hyth.pdf',
     'Intercontinental Residences': 'assets/pdfs/DP-InterContinental-residences.pdf',
