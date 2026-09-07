@@ -1116,6 +1116,10 @@
     border-color: rgba(255,255,255,0.70);
   }
 
+  .hero-mobile-copy {
+    display: none;
+  }
+
   /* TRUST SECTION */
   #trust {
     background: var(--white);
@@ -1563,6 +1567,67 @@
       background: var(--off-white) !important;
     }
 
+    .hero-mobile-copy {
+      display: flex !important;
+      position: absolute;
+      z-index: 4;
+      left: 50%;
+      top: clamp(132px, 16vh, 180px);
+      transform: translateX(-50%);
+      width: min(88%, 560px);
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 22px 18px 18px;
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.72) 0%, rgba(255,255,255,0.44) 65%, rgba(255,255,255,0.18) 100%);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      box-shadow: 0 16px 44px rgba(13,27,62,0.12);
+    }
+
+    .hero-mobile-line {
+      width: min(74%, 310px);
+      height: 2px;
+      background: rgba(201,168,76,0.85);
+      position: relative;
+      margin: 0 auto 18px;
+    }
+
+    .hero-mobile-line::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 10px;
+      height: 10px;
+      background: var(--gold);
+      transform: translate(-50%, -50%) rotate(45deg);
+      border-radius: 1px;
+    }
+
+    .hero-mobile-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(58px, 13vw, 86px);
+      line-height: 0.92;
+      letter-spacing: -0.02em;
+      color: var(--gold);
+      margin: 0 0 18px;
+      text-shadow: 0 2px 18px rgba(255,255,255,0.35);
+    }
+
+    .hero-mobile-subtitle {
+      font-size: 18px;
+      line-height: 1.22;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--navy);
+      text-wrap: balance;
+      max-width: 320px;
+      margin: 0 auto;
+    }
+
     .floating-socials {
       right: 16px !important;
       bottom: calc(env(safe-area-inset-bottom, 0px) + 72px) !important;
@@ -1781,7 +1846,13 @@
 </nav>
 <!-- HERO -->
 <section class="hero" id="hero">
-<img alt="Dock Point — Недвижимость на Пхукете" data-alt-en="Dock Point — Real Estate in Phuket" data-alt-pl="Dock Point — Nieruchomości na Phuket" data-alt-ru="Dock Point — Недвижимость на Пхукете" data-mobile-src-en="assets/images/mobile-hero-logo.png" data-mobile-src-ru="assets/images/mobile-hero-logo.png" data-src-en="assets/images/image-02.png" data-src-ru="assets/images/image-01.jpg" id="hero-main-image" src="assets/images/image-01.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;"/>
+<img alt="Dock Point — Недвижимость на Пхукете" data-alt-en="Dock Point — Real Estate in Phuket" data-alt-pl="Dock Point — Nieruchomości na Phuket" data-alt-ru="Dock Point — Недвижимость на Пхукете" data-mobile-src-en="assets/images/mobile-hero-logo.png" data-mobile-src-pl="assets/images/mobile-hero-logo.png" data-mobile-src-ru="assets/images/mobile-hero-logo.png" data-src-en="assets/images/image-02.png" data-src-pl="assets/images/image-02.png" data-src-ru="assets/images/image-01.jpg" id="hero-main-image" src="assets/images/image-01.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;"/>
+<div class="hero-mobile-copy" aria-hidden="true">
+<div class="hero-mobile-line"></div>
+<h1 class="hero-mobile-title">Dock Point</h1>
+<div class="hero-mobile-line"></div>
+<div class="hero-mobile-subtitle" data-i18n="hero.mobile.sub">Агентство недвижимости на Пхукете</div>
+</div>
 </section>
 <!-- PROJECTS -->
 <section id="phuket">
@@ -2221,6 +2292,7 @@
     "hero.brand": "Dock Point",
     "hero.title": "Dock Point",
     "hero.sub": "Phuket Real Estate",
+    "hero.mobile.sub": "Real Estate Agency in Phuket",
     "hero.cta": "Get a property selection",
     "phuket.label": "Location",
     "phuket.title": "Why Phuket?",
@@ -2398,6 +2470,7 @@
     "hero.brand": "Dock Point",
     "hero.title": "Dock Point",
     "hero.sub": "Nieruchomości na Phuket",
+    "hero.mobile.sub": "Agencja nieruchomości na Phuket",
     "hero.cta": "Otrzymaj wybór nieruchomości",
     "phuket.label": "Lokalizacja",
     "phuket.title": "Dlaczego Phuket?",
@@ -2652,8 +2725,12 @@
     const lang = localStorage.getItem('dockPointLang') || document.documentElement.lang || 'ru';
     const isMobile = window.matchMedia('(max-width: 768px)').matches;
 
-    const desktopSrc = lang === 'ru' ? heroImage.dataset.srcRu : heroImage.dataset.srcEn;
-    const mobileSrc = lang === 'ru' ? heroImage.dataset.mobileSrcRu : heroImage.dataset.mobileSrcEn;
+    const desktopSrc = lang === 'ru'
+      ? heroImage.dataset.srcRu
+      : (lang === 'pl' ? (heroImage.dataset.srcPl || heroImage.dataset.srcEn) : heroImage.dataset.srcEn);
+    const mobileSrc = lang === 'ru'
+      ? heroImage.dataset.mobileSrcRu
+      : (lang === 'pl' ? (heroImage.dataset.mobileSrcPl || heroImage.dataset.mobileSrcEn) : heroImage.dataset.mobileSrcEn);
     const nextSrc = isMobile && mobileSrc ? mobileSrc : desktopSrc;
     const nextAlt = lang === 'en' ? heroImage.dataset.altEn : (lang === 'pl' ? heroImage.dataset.altPl : heroImage.dataset.altRu);
 
