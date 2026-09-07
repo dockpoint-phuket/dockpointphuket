@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="ru">
+<html lang="ru" data-lang="ru">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -1567,23 +1567,25 @@
       background: var(--off-white) !important;
     }
 
+    html[data-lang="ru"] .hero-mobile-copy {
+      display: none !important;
+    }
+
     .hero-mobile-copy {
       display: flex !important;
       position: absolute;
       z-index: 4;
       left: 50%;
-      top: clamp(330px, 39vh, 430px);
+      top: clamp(250px, 30vh, 330px);
       transform: translateX(-50%);
-      width: min(82%, 520px);
+      width: min(84%, 540px);
       flex-direction: column;
       align-items: center;
       text-align: center;
-      padding: 18px 18px 16px;
+      padding: 18px 20px 16px;
       border-radius: 22px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.68) 0%, rgba(255,255,255,0.42) 100%);
-      backdrop-filter: blur(5px);
-      -webkit-backdrop-filter: blur(5px);
-      box-shadow: 0 14px 38px rgba(13,27,62,0.10);
+      background: #fffdf3;
+      box-shadow: 0 14px 38px rgba(13,27,62,0.13);
     }
 
     .hero-mobile-line,
